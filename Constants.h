@@ -13,7 +13,7 @@
 #define KEY_S 83
 #define KEY_s 115
 
-const int width = 25, heigth = 50;
+const int width = 12, heigth = 24;
 const char enemySkin = 'X';
 const char playerSkin = 'O';
 

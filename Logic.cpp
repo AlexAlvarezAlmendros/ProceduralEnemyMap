@@ -59,16 +59,17 @@ void initMap(char(&map)[width][heigth], const int w, const int h)
 void drawMap(char(&map)[width][heigth], const int w, const int h)
 {
 	system("cls");
-	std::cout << '|';
+	/*std::cout << '|';*/
 	for (size_t i = 0; i < w; i++)
 	{
+		//	CON MARCO
+		std::cout << '|';
 		for (size_t j = 0; j < h; j++)
 		{
 			std::cout << map[i][j];
 		}
 		//	CON MARCO
 		std::cout << "|\n";
-		std::cout << '|' ;
 		//	SIN MARCO
 		//std::cout << "\n";
 	}
@@ -83,6 +84,7 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int 
 	AuxNumBalls = _ballsList.getLength();
 	int AuxLength = _ballsList.getLength();
 
+	std::cout << "\n";
 	for (size_t i = 0; i < w; i++)
 	{
 		for (size_t j = 0; j < h; j++)
