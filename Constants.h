@@ -14,7 +14,7 @@
 #define KEY_s 115
 
 const int width = 12, heigth = 24;
-const char enemySkin = 'X';
-const char playerSkin = 'O';
+const int widthPlayer = width - 1;
+const int heigthPlayer = heigth / 2;
 
 //int playerhp = 10;

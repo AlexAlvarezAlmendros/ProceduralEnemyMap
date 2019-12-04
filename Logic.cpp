@@ -59,7 +59,6 @@ void initMap(char(&map)[width][heigth], const int w, const int h)
 void drawMap(char(&map)[width][heigth], const int w, const int h)
 {
 	system("cls");
-	/*std::cout << '|';*/
 	for (size_t i = 0; i < w; i++)
 	{
 		//	CON MARCO
@@ -82,7 +81,6 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int 
 	int NumBalls = 0;
 	int AuxNumBalls;
 	AuxNumBalls = _ballsList.getLength();
-	int AuxLength = _ballsList.getLength();
 
 	std::cout << "\n";
 	for (size_t i = 0; i < w; i++)
@@ -92,25 +90,24 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int 
 			if (map[i][j] == bAux.skin)
 			{
 				NumBalls++;
-				std::cout << "BOLA" << NumBalls << ". X=" << j << " Y=" << i << "\t";
+				std::cout << "BOLA " << NumBalls << ". X=" << j << " Y=" << i << "\t";
 			}
-			/*else if (map[i][j] != bAux.skin)
+			else if (map[i][j] != bAux.skin)
 			{
 				size_t lul = 0;
-				for (int o = 0; o < AuxLength - 1; o++)
+				for (int o = 0; o < AuxNumBalls - 1; o++)
 				{
-
+					lul++;
 					bAux2 = _ballsList.getItem(lul);
 					if (map[i][j] != bAux2.skin && i == bAux2.pos.X && j == bAux2.pos.Y)
 					{
 						_ballsList.removeItem(lul);
+						return;
 					}
 				}
-			}*/
+			}
 		}
 	}
-
-
 	int BallsDestroyed = AuxNumBalls - NumBalls;
 	std::cout << std::endl << "Total bolas: " << NumBalls << std::endl << "Bolas conseguidas: " << BallsDestroyed << std::endl;
 }

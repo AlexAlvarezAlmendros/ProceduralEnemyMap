@@ -5,6 +5,7 @@
 #include <conio.h>
 
 #include "List.h"
+#include "Constants.h"
 #include "Declarations.h"
 #include "Structures.h"
 
@@ -18,9 +19,9 @@ int main()
 	double  frameRate = 120;
 	char map[width][heigth];
 	initMap(map,width, heigth);
-	int characterX = heigth / 2;
-	int characterY = width / 2;
-	
+	int characterX = widthPlayer;
+	int characterY = heigthPlayer;
+
 	clock_t time = 0;
 	while (true) {
 		
@@ -104,6 +105,7 @@ int main()
 		frames++;
 		std::cout <<"\nDelta Time: " << deltaTime / 1000.0f << std::endl;
 		std::cout << time/1000.0f << std::endl;
+		std::cout << "List length: " << ballsList.getLength() << std::endl;
 		//if you really want FPS
 		 if (timer >= 1000.0) { //every second
 			 std::cout << "Frames:" << frames << std::endl;

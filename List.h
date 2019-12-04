@@ -4,10 +4,10 @@
 
 template <class T>
 struct Node
-{ 
+{
 	T data;
-	Node<T> * next = nullptr;
-	Node<T> * back = nullptr;
+	Node<T>* next = nullptr;
+	Node<T>* back = nullptr;
 };
 
 //std::ostream & operator << (std::ostream & out, Player p)
@@ -27,7 +27,9 @@ private:
 #pragma region COMPROBACIÓN DE SI ESTÁ EN LA LISTA
 	Node<T> * getNode(int id)
 	{
-		if (id < 0 || id >= length) return nullptr;
+		if (id < 0 || id >= length) {
+			return nullptr;
+		}
 		bool isBackwards = id > length >> 1 ? true : false;
 
 		Node<T> * count = isBackwards ? tail : front;
@@ -53,7 +55,7 @@ private:
 public:
 
 #pragma region RETORNA EL LENGTH0
-	const int & getLength()
+	int & getLength()
 	{
 		return length;
 	}
@@ -214,9 +216,21 @@ public:
 #pragma region BORRA EL NODO QUE QUERAMOS
 	void removeItem(const size_t id)
 	{
-		if (id < 0 || id >= length) return;
-		if (id == 0) { popFront(); return; }
-		if (id == length - 1) { popBack(); return; }
+		/*int AuxLength = getLength();*/
+		if (id < 0 || id > length)
+		{
+			return;
+		}
+		else if (id == 0) 
+		{
+			popFront();
+			return;
+		}
+		else if (id == length --)
+		{
+			popBack();
+			return;
+		}
 
 		Node<T> * deleteNode = getNode(id);
 		deleteNode->next->back = deleteNode->back;

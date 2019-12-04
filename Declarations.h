@@ -1,5 +1,7 @@
 #pragma once
 
+// José's Logic
+
 double clockToMilliseconds(clock_t ticks);
 
 void initMap(char(&map)[width][heigth], const int w, const int h);
@@ -7,7 +9,7 @@ void initMap(char(&map)[width][heigth], const int w, const int h);
 void drawMap(char(&map)[width][heigth], const int w, const int h);
 
 
-//	CARNAL
+//	OUR Logic
 
 void initList(List<Enemy> & _ballslist);
 
