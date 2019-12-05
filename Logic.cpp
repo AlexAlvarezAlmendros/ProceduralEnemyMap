@@ -74,7 +74,7 @@ void drawMap(char(&map)[width][heigth], const int w, const int h)
 	}
 }
 
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int w, const int h)
+void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int w, const int h)
 {
 	Enemy bAux;
 	Enemy bAux2;
@@ -102,6 +102,7 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int 
 					if (map[i][j] != bAux2.skin && i == bAux2.pos.X && j == bAux2.pos.Y)
 					{
 						_ballsList.removeItem(lul);
+
 						return;
 					}
 				}

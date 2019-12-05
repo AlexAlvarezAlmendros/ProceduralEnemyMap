@@ -19,10 +19,11 @@ struct Node
 template <class T>
 struct List
 {
+	int length = 0;
 private:
 	Node<T> * front = nullptr;
 	Node<T> * tail = nullptr;
-	int length = 0;
+	
 
 #pragma region COMPROBACIÓN DE SI ESTÁ EN LA LISTA
 	Node<T> * getNode(int id)
@@ -226,7 +227,7 @@ public:
 			popFront();
 			return;
 		}
-		else if (id == length --)
+		else if (id == length - 1)
 		{
 			popBack();
 			return;
@@ -237,7 +238,7 @@ public:
 		deleteNode->back->next = deleteNode->next;
 
 		delete deleteNode;
-		length--;
+		length-=1;
 	}
 #pragma endregion
 

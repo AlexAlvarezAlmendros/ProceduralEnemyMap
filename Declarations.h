@@ -15,4 +15,4 @@ void initList(List<Enemy> & _ballslist);
 
 void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballslist);
 
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int w, const int h);
+void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int w, const int h);
