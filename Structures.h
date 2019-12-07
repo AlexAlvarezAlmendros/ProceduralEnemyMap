@@ -19,21 +19,13 @@ struct Enemy
 	Position2D pos;
 };
 
-//template <class T>
-//struct Door
+//struct room
 //{
-//	Door<T> * north;
-//	Door<T> * south;
-//	Door<T> * east;
-//	Door<T> * west;
-//};
-//
-//template <class T>
-//struct Room
-//{
-//	Door<T> * doors;
+//	room * north = nullptr;
+//	room * south = nullptr;
+//	room * east = nullptr;
+//	room * west = nullptr;
 //	Player player;
-//	List<Enemy> enemyList;
-//	int width, heigth;
-//	char map[width][heigth];
+//	List<Enemy> enemylist;
+//	char RoomMap[MapWidth][MapHeigth];
 //};

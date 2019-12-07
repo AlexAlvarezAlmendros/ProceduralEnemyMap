@@ -41,7 +41,12 @@ int main()
 						map[characterX][characterY] = '|';								//	PINTAR ESTELA
 						characterX--;													//	MOVER HACIA ARRIBA
 					}
-					std::cout << std::endl << "Up" << std::endl; //	KEY UP
+					else if (characterY == heigth / 2 - 1 && characterX == width - width + 1)
+					{
+						map[characterX][characterY] = '|';								//	PINTAR ESTELA
+						characterX--;													//	MOVER HACIA ARRIBA POR LA PUERTA
+					}
+					std::cout << std::endl << "Up" << std::endl;						//	KEY UP
 					break;
 
 				case KEY_DOWN:
@@ -52,7 +57,12 @@ int main()
 						map[characterX][characterY] = '|';								//	PINTAR ESTELA
 						characterX++;													//	MOVER HACIA ABAJO
 					}
-					std::cout << std::endl << "Down" << std::endl; //	KEY DOWN
+					else if (characterY == heigth / 2 && characterX <= width)	//
+					{																	//
+						map[characterX][characterY] = '|';								//	PINTAR ESTELA
+						characterX++;													// MOVER HACIA ABAJO POR LA PUERTA
+					}
+					std::cout << std::endl << "Down" << std::endl;						//	KEY DOWN
 					break;
 
 				case KEY_LEFT:
@@ -68,7 +78,7 @@ int main()
 						map[characterX][characterY] = '--';								//	PINTAR ESTELA
 						characterY--;													//	MOVER HACIA LA IZQUIERDA POR LA PUERTA
 					}
-					std::cout << std::endl << "Left" << std::endl; //	KEY LEFT
+					std::cout << std::endl << "Left" << std::endl;						//	KEY LEFT
 					break;
 
 				case KEY_RIGHT:
@@ -84,17 +94,17 @@ int main()
 						map[characterX][characterY] = '--';								//	PINTAR ESTELA
 						characterY++;													//	MOVER HACIA LA DERECHA POR LA PUERTA
 					}
-					std::cout << std::endl << "Right" << std::endl; //	KEY RIGHT
+					std::cout << std::endl << "Right" << std::endl;						//	KEY RIGHT
 					break;
 
 				case 63:
-					initMap(map, 25, 25);
-					std::cout << std::endl << "CLEAR PATH" << std::endl; // CLEAR PATH FROM SCREEN
+					initMap(map, width, heigth);
+					std::cout << std::endl << "CLEAR PATH" << std::endl;				// CLEAR PATH FROM SCREEN
 					break;
 
 				default:
 
-					std::cout << std::endl << c << "null" << std::endl; // not arrow
+					std::cout << std::endl << c << "null" << std::endl;					//	NOT ARROW
 
 					break;
 
@@ -105,7 +115,7 @@ int main()
 			system("cls");
 			drawMap(map,width, heigth);
 			checkMapBalls(map, ballsList, width, heigth);
-
+			checkDoors(map, width, heigth, characterX, characterY);
 			
 		std::chrono::high_resolution_clock::time_point endFrame = std::chrono::high_resolution_clock::now();
 

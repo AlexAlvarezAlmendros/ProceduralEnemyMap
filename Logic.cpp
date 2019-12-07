@@ -69,9 +69,16 @@ void drawMap(char(&map)[width][heigth], const int w, const int h)
 		}
 		for (size_t j = 0; j < h; j++)
 		{
-			if (i == w - w || i == w - 1)	//
-			{								//
-				std::cout << '_';			//	TECHO Y SUELO
+			if ((i == w - w && j != h / 2) || (i == w - 1 && j != h / 2))
+			{	
+				if (j + 1== h)
+				{
+					std::cout << "º\n";		//	ULTIMA CASILLA DEL TEJADO
+				}
+				else if (j != h)
+				{
+					std::cout << 'º';		//	PUERTA TECHO Y TECHO && PUERTA SUELO Y SUELO
+				}
 			}
 			else							//
 			{								//
@@ -82,9 +89,17 @@ void drawMap(char(&map)[width][heigth], const int w, const int h)
 		{								//
 			std::cout << ' ' << "\n";	//	PUERTA DERECHA
 		}
-		else							//
-		{								//
-			std::cout << "|\n";			//	PARED DERECHA
+		else if (i != 0)				//
+		{	
+			if (i+1 == w)
+			{
+				std::cout << "\n";
+			}
+			else
+			{
+				std::cout << "|\n";			//	PARED DERECHA
+			}
+			
 			//std::cout << "\n";		//	SIN PARED DERECHA
 		}
 	}
@@ -128,7 +143,22 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int
 	std::cout << std::endl << "Total bolas: " << NumBalls << std::endl << "Bolas conseguidas: " << BallsDestroyed << std::endl;
 }
 
-//void checkDoors(char(&map)[width][heigth], const int w, const int h)
-//{
-//	if ( )
-//}
+void checkDoors(char(&map)[width][heigth], const int w, const int h, int _characterX, int _characterY)
+{
+	if (map[w / 2][h - h - 1] == 'O' && (_characterX == w / 2 && _characterY == h - h - 1))		//	COMPRUEBA LA PUERTA IZQUIERDA
+	{																							//
+		std::cout << "Puerta izquierda";														//	INDICA LA PUERTA IZQUIERDA
+	}
+	else if (map[w / 2][h] == 'O' && (_characterX == w / 2 && _characterY == h))				//	COMPRUEBA LA PUERTA DERECHA
+	{																							//
+		std::cout << "Puerta derecha";															//	INDICA LA PUERTA DERECHA
+	}
+	else if (map[w][h / 2] == 'O' && (_characterX == w && _characterY == h / 2))				//	COMPRUEBA LA PUERTA INFERIOR
+	{																							//
+		std::cout << "Puerta inferior";															//	INDICA LA PUERTA INFERIOR
+	}
+	else if (map[w - w][h / 2 + 1] == 'O' && (_characterX == w - w && _characterY == h / 2 + 1))//	COMPRUEBA LA PUERTA SUPERIOR
+	{																							//
+		std::cout << "Puerta superior";															//	INDICA LA PUERTA SUPERIOR
+	}
+}
