@@ -1,0 +1,14 @@
+﻿  Logic.cpp
+c:\users\enekai\desktop\nueva carpeta\list.h(264): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  c:\users\enekai\desktop\nueva carpeta\list.h(263): note: durante la compilación de la función miembro de plantilla clase de 'T &List<T>::getItem(const size_t)'
+          with
+          [
+              T=Enemy
+          ]
+  c:\users\enekai\desktop\nueva carpeta\logic.cpp(34): note: vea la referencia a la creación de instancias de plantilla de función 'T &List<T>::getItem(const size_t)' que se está compilando
+          with
+          [
+              T=Enemy
+          ]
+  c:\users\enekai\desktop\nueva carpeta\logic.cpp(23): note: vea la referencia a la creación de instancias de plantilla clase de 'List<Enemy>' que se está compilando
+  Project1.vcxproj -> C:\Users\Enekai\Desktop\Nueva carpeta\Project1\x64\Debug\Project1.exe
