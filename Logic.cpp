@@ -36,9 +36,6 @@ void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballsList)
 	}
 };
 
-
-
-
 double clockToMilliseconds(clock_t ticks) {
 	// units/(units/time) => time (seconds) * 1000 = milliseconds
 	return (ticks / (double)CLOCKS_PER_SEC)*1000.0;
@@ -59,18 +56,37 @@ void initMap(char(&map)[width][heigth], const int w, const int h)
 void drawMap(char(&map)[width][heigth], const int w, const int h)
 {
 	system("cls");
-	for (size_t i = 0; i < w; i++)
+	std::cout << "\n";
+	for (size_t i = 0; i < w ; i++)
 	{
-		//	CON MARCO
-		std::cout << '|';
+		if (i == w / 2)				//
+		{							//
+			std::cout << " ";		//	PUERTA IZQUIERDA
+		}
+		else if (i != w - w)		//
+		{							//
+			std::cout << '|';		//	PARED IZQUIERDA
+		}
 		for (size_t j = 0; j < h; j++)
 		{
-			std::cout << map[i][j];
+			if (i == w - w || i == w - 1)	//
+			{								//
+				std::cout << '_';			//	TECHO Y SUELO
+			}
+			else							//
+			{								//
+				std::cout << map[i][j];		//	MAPA
+			}
 		}
-		//	CON MARCO
-		std::cout << "|\n";
-		//	SIN MARCO
-		//std::cout << "\n";
+		if (i == w / 2)					//
+		{								//
+			std::cout << ' ' << "\n";	//	PUERTA DERECHA
+		}
+		else							//
+		{								//
+			std::cout << "|\n";			//	PARED DERECHA
+			//std::cout << "\n";		//	SIN PARED DERECHA
+		}
 	}
 }
 
@@ -102,13 +118,17 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int
 					if (map[i][j] != bAux2.skin && i == bAux2.pos.X && j == bAux2.pos.Y)
 					{
 						_ballsList.removeItem(lul);
-
 						return;
 					}
 				}
 			}
 		}
 	}
-	int BallsDestroyed = AuxNumBalls - NumBalls;
+	int BallsDestroyed = 0;
 	std::cout << std::endl << "Total bolas: " << NumBalls << std::endl << "Bolas conseguidas: " << BallsDestroyed << std::endl;
 }
+
+//void checkDoors(char(&map)[width][heigth], const int w, const int h)
+//{
+//	if ( )
+//}

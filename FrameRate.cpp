@@ -36,50 +36,60 @@ int main()
 				case KEY_UP:
 				case KEY_W:
 				case KEY_w:
-					if (characterX > width - width) 
-					{
-						map[characterX][characterY] = '|';
-						characterX--;
+					if (characterX > width - width + 1)									//
+					{																	//
+						map[characterX][characterY] = '|';								//	PINTAR ESTELA
+						characterX--;													//	MOVER HACIA ARRIBA
 					}
-					std::cout << std::endl << "Up" << std::endl; //key up
+					std::cout << std::endl << "Up" << std::endl; //	KEY UP
 					break;
 
 				case KEY_DOWN:
 				case KEY_S:
 				case KEY_s:
-					if (characterX < width - 1)
-					{
-						map[characterX][characterY] = '|';
-						characterX++;
+					if (characterX < width - 2)											//
+					{																	//
+						map[characterX][characterY] = '|';								//	PINTAR ESTELA
+						characterX++;													//	MOVER HACIA ABAJO
 					}
-					std::cout << std::endl << "Down" << std::endl; // key down
+					std::cout << std::endl << "Down" << std::endl; //	KEY DOWN
 					break;
 
 				case KEY_LEFT:
 				case KEY_A:
 				case KEY_a:
-					if (characterY > heigth - heigth)
-					{
-						map[characterX][characterY] = '--';
-						characterY--;
+					if (characterY > heigth - heigth)									//
+					{																	//
+							map[characterX][characterY] = '--';							//	PINTAR ESTELA
+							characterY--;												//	MOVER HACIA LA IZQUIERDA
 					}
-					std::cout << std::endl << "Left" << std::endl; // key left
+					else if (characterY == heigth - heigth && characterX == width / 2)	//
+					{																	//
+						map[characterX][characterY] = '--';								//	PINTAR ESTELA
+						characterY--;													//	MOVER HACIA LA IZQUIERDA POR LA PUERTA
+					}
+					std::cout << std::endl << "Left" << std::endl; //	KEY LEFT
 					break;
 
 				case KEY_RIGHT:
 				case KEY_D:
 				case KEY_d:
-					if (characterY < heigth-1)
-					{
-						map[characterX][characterY] = '--';
-						characterY++;
+					if (characterY < heigth - 1)										//
+					{																	//
+						map[characterX][characterY] = '--';								//	PINTAR ESTELA
+						characterY++;													//	MOVER HACIA LA DERECHA
 					}
-					std::cout << std::endl << "Right" << std::endl; // key right
+					else if (characterY < heigth && characterX == width / 2)			//
+					{																	//
+						map[characterX][characterY] = '--';								//	PINTAR ESTELA
+						characterY++;													//	MOVER HACIA LA DERECHA POR LA PUERTA
+					}
+					std::cout << std::endl << "Right" << std::endl; //	KEY RIGHT
 					break;
 
 				case 63:
 					initMap(map, 25, 25);
-					std::cout << std::endl << "CLEAR PATH" << std::endl; // clear path from screen
+					std::cout << std::endl << "CLEAR PATH" << std::endl; // CLEAR PATH FROM SCREEN
 					break;
 
 				default:
@@ -106,6 +116,7 @@ int main()
 		std::cout <<"\nDelta Time: " << deltaTime / 1000.0f << std::endl;
 		std::cout << time/1000.0f << std::endl;
 		std::cout << "List length: " << ballsList.getLength() << std::endl;
+		std::cout << "X: " << characterX << "Y: " << characterY;
 		//if you really want FPS
 		 if (timer >= 1000.0) { //every second
 			 std::cout << "Frames:" << frames << std::endl;
