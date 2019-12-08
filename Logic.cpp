@@ -13,28 +13,7 @@ void randPos(Enemy & _p, int _i)
 	return;
 };
 
-void initList(List<Enemy> & _ballsList)
-{
-	Enemy p;
 
-	for (int i = 0; i < 5; i++)
-	{
-		randPos(p, i);
-		_ballsList.addItem(p);
-	}
-	return;
-};
-
-void ballsIntoMap(vectorbi(&_map), List<Enemy> _ballsList)
-{
-	int auxLength = _ballsList.getLength();
-	Enemy aux;
-	for (size_t i = 0; i < auxLength; i++)
-	{
-		aux = _ballsList.getItem(i);
-		_map[aux.pos.X][aux.pos.Y] = aux.skin;
-	}
-};
 
 double clockToMilliseconds(clock_t ticks) {
 	// units/(units/time) => time (seconds) * 1000 = milliseconds
@@ -42,18 +21,18 @@ double clockToMilliseconds(clock_t ticks) {
 }
 //...
 
-void initMap(vectorbi(&map), const int w, const int h)
+void initMap(Array(&map), const int _size)
 {
-	for (size_t i = 0; i < w; i++)
+	for (size_t i = 0; i < _size; i++)
 	{
-		for (size_t j = 0; j < h; j++)
+		for (size_t j = 0; j < _size; j++)
 		{
 			map[i][j] = ' ';
 		}
 	}
 }
 
-void drawMap(vectorbi(&map), const int w, const int h)
+void drawMap(Array(&map), const int w, const int h)
 {
 	system("cls");
 	std::cout << '|';
@@ -71,7 +50,7 @@ void drawMap(vectorbi(&map), const int w, const int h)
 	}
 }
 
-void checkMapBalls(vectorbi(&map), List<Enemy> _ballsList, const int w, const int h)
+void checkMapBalls(Array(&map), List<Enemy> _ballsList, const int w, const int h)
 {
 	Enemy bAux;
 	Enemy bAux2;
@@ -114,6 +93,10 @@ List<room> Init()
 {
 	srand(time(NULL));
 	List<room> level;
+	
+	// FASE 1
+	short mainPathSize = rand() % Max_MainPath + Min_MainPath;
+
 
 	char difficulty;
 	bool temporal = true;

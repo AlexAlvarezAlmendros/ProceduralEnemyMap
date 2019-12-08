@@ -17,4 +17,11 @@
 const char enemySkin = 'X';
 const char playerSkin = 'O';
 
-//int playerhp = 10;
+int playerhp = 10;
+
+short Min_MainPath = 5;
+short Max_MainPath = 10;
+short MinRamificationLength = 2;
+short MaxRamificationLength = 5;
+short MinRamifications = 0;
+short MaxRamifications = 1;

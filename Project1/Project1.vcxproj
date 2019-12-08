@@ -119,6 +119,7 @@
     <ClInclude Include="..\Declarations.h" />
     <ClInclude Include="..\List.h" />
     <ClInclude Include="..\Structures.h" />
+    <ClInclude Include="Array.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\FrameRate.cpp" />

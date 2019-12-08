@@ -1,51 +1,14 @@
 ﻿  FrameRate.cpp
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(29): error C2143: error de sintaxis: falta ';' delante de '<'
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(29): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(29): error C2238: símbolos (token) inesperados delante de ';'
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(31): error C2087: 'map': falta el subíndice
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(31): warning C4200: se ha utilizado una extensión no estándar: matriz de tamaño cero en struct/union
-  c:\users\enekai\documents\github\proceduralenemymap\structures.h(31): note: Un constructor con valor predeterminado o un operador de asignación de copia o movimiento ignorará a este miembro.
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(32): error C2229: struct 'room' tiene una matriz de tamaño cero no válida
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(5): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(5): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(7): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(7): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(14): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(14): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(16): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(16): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\framerate.cpp(14): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-c:\users\enekai\documents\github\proceduralenemymap\framerate.cpp(19): error C2440: 'inicializando': no se puede realizar la conversión de 'Node<T> *' a 'room'
-          with
-          [
-              T=room
-          ]
-  c:\users\enekai\documents\github\proceduralenemymap\framerate.cpp(19): note: Ningún constructor ha podido aceptar el tipo de origen o bien la resolución de sobrecarga del constructor era ambigua
-c:\users\enekai\documents\github\proceduralenemymap\framerate.cpp(29): error C2065: 'map': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\framerate.cpp(29): error C2065: 'ballsList': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\framerate.cpp(31): error C2065: 'ballsList': identificador no declarado
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\framerate.cpp : fatal error C1041: no puede abrir la base de datos de programa 'C:\Users\sugge\OneDrive\Documents\Github\ProceduralEnemyMap\Project1\x64\Debug\vc141.idb'. Si varios CL.EXE escriben en el mismo archivo .PDB, use /FS.
   Logic.cpp
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(29): error C2143: error de sintaxis: falta ';' delante de '<'
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(29): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(29): error C2238: símbolos (token) inesperados delante de ';'
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(31): error C2087: 'map': falta el subíndice
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(31): warning C4200: se ha utilizado una extensión no estándar: matriz de tamaño cero en struct/union
-  c:\users\enekai\documents\github\proceduralenemymap\structures.h(31): note: Un constructor con valor predeterminado o un operador de asignación de copia o movimiento ignorará a este miembro.
-c:\users\enekai\documents\github\proceduralenemymap\structures.h(32): error C2229: struct 'room' tiene una matriz de tamaño cero no válida
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(5): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(5): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(7): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(7): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(14): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(14): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(16): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\declarations.h(16): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(28): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(28): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(45): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(45): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(56): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(56): error C2065: 'heigth': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(74): error C2065: 'width': identificador no declarado
-c:\users\enekai\documents\github\proceduralenemymap\logic.cpp(74): error C2065: 'heigth': identificador no declarado
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\array.h(85): warning C4018: '>': no coinciden signed/unsigned
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\structures.h(31): error C2143: error de sintaxis: falta ';' delante de '<'
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\structures.h(31): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\structures.h(31): error C2238: símbolos (token) inesperados delante de ';'
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\structures.h(35): error C2061: error de sintaxis: identificador 'List'
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\structures.h(41): error C3861: 'randPos': no se encontró el identificador
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\structures.h(42): error C2065: '_enemyList': identificador no declarado
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\logic.cpp(43): error C2676: '[' binario: 'Array' no define este operador o una conversión a un tipo aceptable para el operador predefinido
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\logic.cpp(66): error C2676: '[' binario: 'Array' no define este operador o una conversión a un tipo aceptable para el operador predefinido
+c:\users\sugge\onedrive\documents\github\proceduralenemymap\logic.cpp(94): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   Generando código...
