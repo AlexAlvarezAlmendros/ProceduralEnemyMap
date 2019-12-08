@@ -1,0 +1,4 @@
+﻿  Source.cpp
+c:\users\sugge\source\repos\justtrying\justtrying\source.cpp(33): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\sugge\source\repos\justtrying\justtrying\source.cpp(57): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\sugge\source\repos\justtrying\justtrying\source.cpp(58): error C3892: 'auxroom': no se puede asignar a una variable constante

@@ -15,36 +15,11 @@ int main()
 	
 	// DURAS DECLARACIONES
 
-	List<room> level = Init();	
+	List<room> level = Init();
 	
-
-
-
-
-	Destroy(level);
+	level.clear();
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //void main2()
 //{

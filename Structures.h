@@ -4,6 +4,8 @@
 #include "List.h"
 #include "Array.h"
 
+
+
 struct Position2D
 {
 	int X, Y;
@@ -21,6 +23,13 @@ struct Enemy
 	Position2D pos;
 };
 
+void randPos(Enemy & _p, int _i)
+{
+	_p.pos.X = (rand() % 20 + 5) / (_i + 1);
+	_p.pos.Y = (rand() % 20 + 5) / (_i + 1);
+	return;
+};
+
 struct room
 {
 	room * north = nullptr;
@@ -28,21 +37,21 @@ struct room
 	room * east = nullptr;
 	room * west = nullptr;
 	Player player;
-	List<Enemy> enemyList;
+	//List<Enemy> enemyList;
 	const int size = rand() + 15 % 50;
 	Array map;
 
-	void initList(List<Enemy> _enemyList)
-	{
-		Enemy p;
+	//void initList(List<Enemy> _enemyList)
+	//{
+	//	Enemy p;
 
-		for (int i = 0; i < 5; i++)
-		{
-			randPos(p, i);
-			_enemyList.addItem(p);
-		}
-		return;
-	};
+	//	for (int i = 0; i < 5; i++)
+	//	{
+	//		randPos(p, i);
+	//		_enemyList.addItem(p);
+	//	}
+	//	return;
+	//};
 
 	/*void ballsIntoMap(Array(&_map), List<Enemy> _ballsList)
 	{
@@ -54,4 +63,30 @@ struct room
 			_map[aux.pos.X][aux.pos.Y] = aux.skin;
 		}
 	};*/
+
+	void Init()
+	{
+		srand(time(NULL));
+
+		// FASE 1
+		short mainPathSize = rand() % Max_MainPath + Min_MainPath;
+
+		char difficulty;
+		bool temporal = true;
+		std::cout << "¿Vas a jugar en modo fácil o difícil? (f/d)\n Respuesta: ";
+		while (temporal)
+		{
+			std::cin >> difficulty;
+			if (difficulty != 'f' && difficulty != 'F' && difficulty != 'd' && difficulty != 'D')
+			{
+				system("CLS");
+				std::cout << "Por favor, introduzca una respuesta válida (f/d)\n Respuesta: ";
+			}
+			else
+			{
+				temporal = false;
+			}
+		}
+		return;
+	}
 };
