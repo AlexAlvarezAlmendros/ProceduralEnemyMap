@@ -49,12 +49,17 @@ struct room
 
 int main()
 {
+	//FASE 1
 	short mainPathSize = rand() % Max_MainPath + Min_MainPath;
 	List<room> roomList;
 	room auxroom;
 	for (size_t i = 0; i < mainPathSize; i++) //GENERACION DE ROOMS
-	{
-		srand(time(NULL));
-		auxroom.size;
+	{	
+		roomList.addItem(auxroom);
+		if (i != 0)
+		{
+			srand(time(NULL));
+			auxroom.size;
+		}
 	}
 }
