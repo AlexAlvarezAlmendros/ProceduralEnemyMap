@@ -48,11 +48,40 @@ struct room
 	Player player;
 	charbivector map;
 	int size;
+	int startEnemyNum;
 
 	void basicInitRoom(char &_difficulty)
 	{
 		srand(time(NULL));
 		size = rand() % 50 + 20;
+
+		switch (_difficulty)
+		{
+		case 'f':
+		case 'F':
+			startEnemyNum = 1 + (rand() % 3);
+			break;
+		case 'm':
+		case 'M':
+			startEnemyNum = 3 + (rand() % (6 -2));
+			break;
+		case 'd':
+		case 'D':
+			startEnemyNum = 5 + (rand() % (8 - 4));
+			break;
+		default:
+			break;
+		}
+
+		Enemy auxenemy;
+		for (size_t i = 0; i < startEnemyNum; i++)
+		{
+			srand(time(NULL));
+			auxenemy.pos.X = rand() % size;
+			srand(time(NULL));
+			auxenemy.pos.Y = rand() % size;
+			enemyList.addItem(auxenemy);
+		}
 
 		map.resize(size);
 		for (size_t i = 0; i < size; i++)
@@ -85,10 +114,6 @@ void drawMap(charbivector(&map), int _size)
 		{
 			std::cout << map[i][j];
 		}
-		//	CON MARCO
-		//std::cout << "|\n";
-		//std::cout << '|';	
-		//	SIN MARCO
 		std::cout << "\n";
 	}
 	std::cout << "\n Size = " << _size;
@@ -101,32 +126,30 @@ int main()
 
 	char difficulty;
 	bool temporal = true;
-	std::cout << "¿Vas a jugar en modo fácil o difícil? (f/d)\n Respuesta: ";
+	std::cout << "¿Vas a jugar en modo fácil o difícil? (f/m/d)\n Respuesta: ";
 	while (temporal)
 	{
 		std::cin >> difficulty;
-		if (difficulty != 'f' && difficulty != 'F' && difficulty != 'd' && difficulty != 'D')
+		if (difficulty != 'f' && difficulty != 'F' && difficulty != 'd' && difficulty != 'D' && difficulty != 'm' && difficulty != 'M')
 		{
 			system("CLS");
-			std::cout << "Por favor, introduzca una respuesta válida (f/d)\n Respuesta: ";
+			std::cout << "Por favor, introduzca una respuesta válida (f/m/d)\n Respuesta: ";
 		}
 		else
 		{
 			temporal = false;
 		}
 	}
-
+	srand(time(NULL));
 	short mainPathSize = rand() % Max_MainPath + Min_MainPath;
 	List<room> roomList;
 	room auxroom;
 	for (size_t i = 0; i < mainPathSize; i++) //GENERACION DE ROOMS
 	{
+		auxroom.basicInitRoom(difficulty);
 		if (i != 0)
 		{
-			auxroom.basicInitRoom(difficulty);
-		}
-		else
-		{
+			
 			//aqui es donde hay que mirar las puertas
 		}
 
