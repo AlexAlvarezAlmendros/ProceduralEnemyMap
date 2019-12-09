@@ -15,6 +15,6 @@ void initList(List<Enemy> & _ballslist);
 
 void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballslist);
 
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int w, const int h);
+void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int _characterX, const int _characterY);
 
 void checkDoors(char(&map)[width][heigth], const int w, const int h, int _characterX, int _characterY);

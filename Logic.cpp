@@ -99,44 +99,22 @@ void drawMap(char(&map)[width][heigth], const int w, const int h)
 			{
 				std::cout << "|\n";			//	PARED DERECHA
 			}
-			
 			//std::cout << "\n";		//	SIN PARED DERECHA
 		}
 	}
 }
 
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int w, const int h)
+void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int _characterX, const int _characterY)
 {
 	Enemy bAux;
-	Enemy bAux2;
 	int NumBalls = 0;
-	int AuxNumBalls;
-	AuxNumBalls = _ballsList.getLength();
-
-	std::cout << "\n";
-	for (size_t i = 0; i < w; i++)
+	for (int i = 0; i < _ballsList.getLength(); i++)
 	{
-		for (size_t j = 0; j < h; j++)
+		bAux = _ballsList.getItem(i);
+		if (map[_characterX][_characterY] != bAux.skin && (_characterX == bAux.pos.X && _characterY == bAux.pos.Y))
 		{
-			if (map[i][j] == bAux.skin)
-			{
-				NumBalls++;
-				std::cout << "BOLA " << NumBalls << ". X=" << j << " Y=" << i << "\t";
-			}
-			else if (map[i][j] != bAux.skin)
-			{
-				size_t lul = 0;
-				for (int o = 0; o < AuxNumBalls - 1; o++)
-				{
-					lul++;
-					bAux2 = _ballsList.getItem(lul);
-					if (map[i][j] != bAux2.skin && i == bAux2.pos.X && j == bAux2.pos.Y)
-					{
-						_ballsList.removeItem(lul);
-						return;
-					}
-				}
-			}
+			_ballsList.removeItem(i);
+			return;
 		}
 	}
 	int BallsDestroyed = 0;

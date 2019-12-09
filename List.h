@@ -149,9 +149,16 @@ public:
 	{
 		if (front == nullptr) return;
 		Node<T> * countNode = front->next;
-		countNode->back = nullptr;
-		delete front;
-		front = countNode;
+		if (countNode == nullptr)
+		{
+			delete front;
+			front = nullptr;
+		}
+		else {
+			countNode->back = nullptr;
+			delete front;
+			front = countNode;
+		}
 		if (length == 1) {
 			front = nullptr;
 			tail = nullptr;
