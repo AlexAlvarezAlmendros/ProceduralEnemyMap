@@ -114,7 +114,7 @@ int main()
 
 			system("cls");
 			drawMap(map,width, heigth);
-			checkMapBalls(map, ballsList, width, heigth);
+			checkMapBalls(map, ballsList, characterX, characterY);
 			checkDoors(map, width, heigth, characterX, characterY);
 			
 		std::chrono::high_resolution_clock::time_point endFrame = std::chrono::high_resolution_clock::now();
@@ -140,6 +140,7 @@ int main()
 		 {
 			 std::cout << "Wait" << std::endl;
 			 std::this_thread::sleep_for(std::chrono::milliseconds((long)(1000.0f - timer)));
+			 time += 1000.0f - timer;
 			 frames = 0;
 			 timer = 0.0f;
 		 }
