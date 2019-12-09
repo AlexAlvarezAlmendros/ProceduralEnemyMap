@@ -11,12 +11,6 @@ struct Node
 	Node<T>* back = nullptr;
 };
 
-//std::ostream & operator << (std::ostream & out, Player p)
-//{
-//	out << p.name;
-//	return out;
-//};
-
 template <class T>
 struct List
 {
@@ -77,7 +71,6 @@ public:
 		else
 		{
 			newNode->next = front;
-			//newNode->back = newNode;
 			newNode->back = nullptr;
 			front->back = newNode;
 
@@ -94,7 +87,6 @@ public:
 		if (id == 0) { addItem(item); return; }
 		if (id == length) { pushBack(item); return; }
 
-		//	FORMA 1: ID
 		Node<T> * countNode = getNode(id);
 		if (countNode != nullptr)
 		{
@@ -107,34 +99,6 @@ public:
 
 			length++;
 		}
-
-		//	FORMA 2: ID - 1
-		/*Node * countNode = getNode(id - 1);
-		if (countNode != nullptr)
-		{
-			Node * newNode = new Node;
-			newNode->data = item;
-			newNode->next = countNode->next;
-			countNode->next->back = newNode;
-			countNode->back, countNode->next = newNode;
-
-			length++;
-		}*/
-
-		//	FORMA 3: ID - 1 Y SIN GETNODE
-		//Node * countNode = front;
-		//int count = 0;
-		//for (Node * countNode = front; countNode != nullptr; countNode = countNode->next)
-		//{
-		//	if (count == id - 1)
-		//	{
-		//		Node * newNode = new Node;
-		//		newNode->data = item;
-		//		newNode->next = countNode->next;
-		//		countNode->next = newNode;
-		//	}
-		//	count++;
-		//}
 	}
 #pragma endregion
 
@@ -178,7 +142,6 @@ public:
 		}
 		Node<T> * newNode = new Node<T>;
 		newNode->data = item;
-		/*tail->next = newNode;*/
 		tail->next = newNode;
 		newNode->back = tail;
 		tail = newNode;
@@ -202,30 +165,12 @@ public:
 			tail = nullptr;
 		}
 		length--;
-
-		//Node * countNode = getNode(length - 2);
-		////countNode = front;
-		///*for (int i = 0; i < length - 2; i++)
-		//{
-		//	countNode = countNode->next;
-		//}*/
-		//delete tail;
-		//tail = countNode;
-		//tail->next = nullptr;
-		//tail->back = countNode->back;
-		//if (length == 1)
-		//{
-		//	front = nullptr;
-		//	tail = nullptr;
-		//}
-		//length--;
 	}
 #pragma endregion
 
 #pragma region BORRA EL NODO QUE QUERAMOS
 	void removeItem(const size_t id)
 	{
-		/*int AuxLength = getLength();*/
 		if (id < 0 || id > length)
 		{
 			return;

@@ -1,9 +1,9 @@
-#include <time.h>
+#include <ctime>
 
 #include "Declarations.h"
 #include "Structures.h"
 
-void basicInitRoom(room &_room, char &_difficulty)
+void InitGame(room &_room, char &_difficulty)
 {
 	srand(time(NULL));
 	_room.size = rand() % 50 + 20;
@@ -25,18 +25,10 @@ void basicInitRoom(room &_room, char &_difficulty)
 	default:
 		break;
 	}
+}
 
-	Enemy auxenemy;
-
-	for (size_t i = 0; i < _room.startEnemyNum; i++)
-	{
-		srand(time(NULL));
-		auxenemy.pos.X = rand() % _room.size;
-		srand(time(NULL));
-		auxenemy.pos.Y = rand() % _room.size;
-		_room.enemyList.addItem(auxenemy);
-	}
-
+void basicInitRoom(room &_room)
+{
 	_room.map.resize(_room.size);
 	for (size_t i = 0; i < _room.size; i++)
 	{
@@ -55,4 +47,30 @@ void basicInitRoom(room &_room, char &_difficulty)
 	}
 	_room.player.pos.X = _room.size / 2;
 	_room.player.pos.Y = _room.size / 2;
+}
+
+void randPos(room &_room, Enemy &_p)
+{
+	Enemy auxenemy;
+	for (size_t i = 0; i < _room.startEnemyNum; i++)
+	{
+		srand(time(NULL));
+		auxenemy.pos.X = rand() % _room.size;
+		srand(time(NULL));
+		auxenemy.pos.Y = rand() % _room.size;
+		_room.enemyList.addItem(auxenemy);
+	}
+}
+
+
+// prueba
+void initMap(char(&map)[width][heigth], const int w, const int h)
+{
+	for (size_t i = 0; i < w; i++)
+	{
+		for (size_t j = 0; j < h; j++)
+		{
+			map[i][j] = ' ';
+		}
+	}
 }

@@ -6,12 +6,6 @@
 #include "Declarations.h"
 #include "Structures.h"
 
-void randPos(Enemy & _p, int _i)
-{
-	_p.pos.X = (rand() % 20 + 5) / (_i + 1);
-	_p.pos.Y = (rand() % 20 + 5) / (_i + 1);
-	return;
-};
 
 void initList(List<Enemy> & _ballsList)
 {
@@ -35,9 +29,6 @@ void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballsList)
 		_map[aux.pos.X][aux.pos.Y] = aux.skin;
 	}
 };
-
-
-
 
 double clockToMilliseconds(clock_t ticks) {
 	// units/(units/time) => time (seconds) * 1000 = milliseconds

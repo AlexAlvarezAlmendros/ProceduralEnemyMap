@@ -2,6 +2,7 @@
 #include <vector>
 
 typedef std::vector<std::vector<char>> charbivector;
+
 int playerhp = 10;
 
 const short Min_MainPath = 5;
