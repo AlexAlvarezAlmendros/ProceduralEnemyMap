@@ -1,13 +1,14 @@
 #pragma once
+#pragma once
 #include "Constants.h"
 #include "Structures.h"
 
 template <class T>
 struct Node
-{ 
+{
 	T data;
-	Node<T> * next = nullptr;
-	Node<T> * back = nullptr;
+	Node<T>* next = nullptr;
+	Node<T>* back = nullptr;
 };
 
 //std::ostream & operator << (std::ostream & out, Player p)
@@ -19,15 +20,18 @@ struct Node
 template <class T>
 struct List
 {
+	int length = 0;
 private:
 	Node<T> * front = nullptr;
 	Node<T> * tail = nullptr;
-	int length = 0;
+
 
 #pragma region COMPROBACIÓN DE SI ESTÁ EN LA LISTA
 	Node<T> * getNode(int id)
 	{
-		if (id < 0 || id >= length) return nullptr;
+		if (id < 0 || id >= length) {
+			return nullptr;
+		}
 		bool isBackwards = id > length >> 1 ? true : false;
 
 		Node<T> * count = isBackwards ? tail : front;
@@ -53,7 +57,7 @@ private:
 public:
 
 #pragma region RETORNA EL LENGTH0
-	const int & getLength()
+	int & getLength()
 	{
 		return length;
 	}
@@ -76,7 +80,7 @@ public:
 			//newNode->back = newNode;
 			newNode->back = nullptr;
 			front->back = newNode;
-			
+
 			front = newNode;
 		}
 		length++;
@@ -146,9 +150,16 @@ public:
 	{
 		if (front == nullptr) return;
 		Node<T> * countNode = front->next;
-		countNode->back = nullptr;
-		delete front;
-		front = countNode;
+		if (countNode == nullptr)
+		{
+			delete front;
+			front = nullptr;
+		}
+		else {
+			countNode->back = nullptr;
+			delete front;
+			front = countNode;
+		}
 		if (length == 1) {
 			front = nullptr;
 			tail = nullptr;
@@ -214,16 +225,28 @@ public:
 #pragma region BORRA EL NODO QUE QUERAMOS
 	void removeItem(const size_t id)
 	{
-		if (id < 0 || id >= length) return;
-		if (id == 0) { popFront(); return; }
-		if (id == length - 1) { popBack(); return; }
+		/*int AuxLength = getLength();*/
+		if (id < 0 || id > length)
+		{
+			return;
+		}
+		else if (id == 0)
+		{
+			popFront();
+			return;
+		}
+		else if (id == length - 1)
+		{
+			popBack();
+			return;
+		}
 
 		Node<T> * deleteNode = getNode(id);
 		deleteNode->next->back = deleteNode->back;
 		deleteNode->back->next = deleteNode->next;
 
 		delete deleteNode;
-		length--;
+		length -= 1;
 	}
 #pragma endregion
 
