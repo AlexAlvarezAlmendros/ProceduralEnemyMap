@@ -1,15 +1,4 @@
 ﻿  FrameRate.cpp
-c:\users\sugge\onedrive\documents\github\proceduralenemymap\array.h(85): warning C4018: '>': no coinciden signed/unsigned
-  Logic.cpp
-c:\users\sugge\onedrive\documents\github\proceduralenemymap\array.h(85): warning C4018: '>': no coinciden signed/unsigned
-c:\users\sugge\onedrive\documents\github\proceduralenemymap\logic.cpp(94): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Generando código...
-Logic.obj : error LNK2005: ya se definió "void __cdecl randPos(struct Enemy &,int)" (?randPos@@YAXAEAUEnemy@@H@Z) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "int playerhp" (?playerhp@@3HA) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "short Min_MainPath" (?Min_MainPath@@3FA) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "short Max_MainPath" (?Max_MainPath@@3FA) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "short MinRamificationLength" (?MinRamificationLength@@3FA) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "short MaxRamificationLength" (?MaxRamificationLength@@3FA) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "short MinRamifications" (?MinRamifications@@3FA) en FrameRate.obj
-Logic.obj : error LNK2005: ya se definió "short MaxRamifications" (?MaxRamifications@@3FA) en FrameRate.obj
-C:\Users\sugge\OneDrive\Documents\Github\ProceduralEnemyMap\Project1\x64\Debug\Project1.exe : fatal error LNK1169: se encontraron uno o más símbolos definidos simultáneamente
+c:\users\gerard.palauribes\documents\github\proceduralenemymap\array.h(85): warning C4018: '>': signed/unsigned mismatch
+c:\users\gerard.palauribes\documents\github\proceduralenemymap\structures.h(68): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Project1.vcxproj -> C:\Users\Gerard.palauribes\Documents\GitHub\ProceduralEnemyMap\Project1\x64\Debug\Project1.exe

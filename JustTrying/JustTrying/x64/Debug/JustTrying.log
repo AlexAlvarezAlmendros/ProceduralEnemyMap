@@ -1,18 +1,4 @@
 ﻿  Source.cpp
-c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(33): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(61): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\list.h(65): error C2280: 'room &room::operator =(const room &)': se está intentando hacer referencia a una función eliminada.
-  c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(48): note: el compilador generó 'room::operator =' aquí
-  c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(48): note: 'room &room::operator =(const room &)': la función se eliminó implícitamente porque 'room' tiene un miembro de datos 'room::size' de un tipo que no es clase calificado constante
-  c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(47): note: vea la declaración de 'room::size'
-  c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\list.h(63): note: durante la compilación de la función miembro de plantilla clase de 'void List<room>::addItem(T &)'
-          with
-          [
-              T=room
-          ]
-  c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(58): note: vea la referencia a la creación de instancias de plantilla de función 'void List<room>::addItem(T &)' que se está compilando
-          with
-          [
-              T=room
-          ]
-  c:\users\enekai\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(54): note: vea la referencia a la creación de instancias de plantilla clase de 'List<room>' que se está compilando
+c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(54): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  JustTrying.vcxproj -> C:\Users\Gerard.palauribes\Documents\GitHub\ProceduralEnemyMap\JustTrying\x64\Debug\JustTrying.exe

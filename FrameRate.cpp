@@ -4,8 +4,6 @@
 #include <array>
 #include <conio.h>
 
-#include "List.h"
-#include "Declarations.h"
 #include "Structures.h"
 
 
@@ -15,7 +13,7 @@ int main()
 	
 	// DURAS DECLARACIONES
 
-	List<room> level = Init();
+	List<room> level;// = Init();
 	
 	level.clear();
 	return 0;

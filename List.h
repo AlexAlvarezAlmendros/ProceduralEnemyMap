@@ -1,5 +1,5 @@
 #pragma once
-#include "Constants.h"
+
 #include "Structures.h"
 
 template <class T>

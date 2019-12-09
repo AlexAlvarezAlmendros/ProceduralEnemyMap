@@ -1,24 +1,24 @@
-#include <string>
-#include <iostream>
-#include <ctime>
-
-#include "List.h"
-//#include "Declarations.h"
-#include "Structures.h"
-
-//void randPos(Enemy & _p, int _i)
-//{
-//	_p.pos.X = (rand() % 20 + 5) / (_i + 1);
-//	_p.pos.Y = (rand() % 20 + 5) / (_i + 1);
-//	return;
-//};
-
-
-
-double clockToMilliseconds(clock_t ticks) {
-	// units/(units/time) => time (seconds) * 1000 = milliseconds
-	return (ticks / (double)CLOCKS_PER_SEC)*1000.0;
-}
+//#include <string>
+//#include <iostream>
+//#include <ctime>
+//
+//#include "List.h"
+////#include "Declarations.h"
+//#include "Structures.h"
+//
+////void randPos(Enemy & _p, int _i)
+////{
+////	_p.pos.X = (rand() % 20 + 5) / (_i + 1);
+////	_p.pos.Y = (rand() % 20 + 5) / (_i + 1);
+////	return;
+////};
+//
+//
+//
+//double clockToMilliseconds(clock_t ticks) {
+//	// units/(units/time) => time (seconds) * 1000 = milliseconds
+//	return (ticks / (double)CLOCKS_PER_SEC)*1000.0;
+//}
 //...
 
 //void initMap(Array(&map), const int _size)

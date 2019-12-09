@@ -1,8 +1,6 @@
 #pragma once
 #include "Constants.h"
-#include <vector>
-#include "List.h"
-#include "Array.h"
+#include "Declarations.h"
 
 
 
@@ -19,7 +17,7 @@ struct Player
 
 struct Enemy
 {
-	char skin = enemySkin;
+	char skin;// = enemySkin;
 	Position2D pos;
 };
 
@@ -37,8 +35,9 @@ struct room
 	room * east = nullptr;
 	room * west = nullptr;
 	Player player;
-	//List<Enemy> enemyList;
-	const int size = rand() + 15 % 50;
+
+	List<Enemy> enemyList;
+	int size = rand() + 15 % 50;
 	Array map;
 
 	//void initList(List<Enemy> _enemyList)

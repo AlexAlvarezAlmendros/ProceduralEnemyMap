@@ -1,7 +1,9 @@
 #include <iostream>
 #include <time.h>
 #include "List.h"
+#include <vector>
 
+typedef std::vector<std::vector<char>> charbivector;
 int playerhp = 10;
 
 const short Min_MainPath = 5;
@@ -44,22 +46,93 @@ struct room
 	room * west = nullptr;
 	List<Enemy> enemyList;
 	Player player;
-	const int size = rand() + 15 % 50;
+	charbivector map;
+	int size;
+
+	void basicInitRoom(char &_difficulty)
+	{
+		srand(time(NULL));
+		size = rand() % 50 + 20;
+
+		map.resize(size);
+		for (size_t i = 0; i < size; i++)
+		{
+			map[i].resize(size);
+			for (size_t j = 0; j < size; j++)
+			{
+				if (i == 0 || j == 0 || i == size - 1 || j == size - 1)
+				{
+					map[i][j] = '#';
+				}
+				else
+				{
+					map[i][j] = ' ';
+				}
+			}
+		}
+		player.pos.X = size / 2;
+		player.pos.Y = size / 2;
+	}
 };
+
+void drawMap(charbivector(&map), int _size)
+{
+	system("cls");
+	std::cout << '|';
+	for (size_t i = 0; i < _size; i++)
+	{
+		for (size_t j = 0; j < _size; j++)
+		{
+			std::cout << map[i][j];
+		}
+		//	CON MARCO
+		//std::cout << "|\n";
+		//std::cout << '|';	
+		//	SIN MARCO
+		std::cout << "\n";
+	}
+	std::cout << "\n Size = " << _size;
+}
 
 int main()
 {
+	setlocale(LC_ALL, "");
 	//FASE 1
+
+	char difficulty;
+	bool temporal = true;
+	std::cout << "¿Vas a jugar en modo fácil o difícil? (f/d)\n Respuesta: ";
+	while (temporal)
+	{
+		std::cin >> difficulty;
+		if (difficulty != 'f' && difficulty != 'F' && difficulty != 'd' && difficulty != 'D')
+		{
+			system("CLS");
+			std::cout << "Por favor, introduzca una respuesta válida (f/d)\n Respuesta: ";
+		}
+		else
+		{
+			temporal = false;
+		}
+	}
+
 	short mainPathSize = rand() % Max_MainPath + Min_MainPath;
 	List<room> roomList;
 	room auxroom;
 	for (size_t i = 0; i < mainPathSize; i++) //GENERACION DE ROOMS
-	{	
-		roomList.addItem(auxroom);
+	{
 		if (i != 0)
 		{
-			srand(time(NULL));
-			auxroom.size;
+			auxroom.basicInitRoom(difficulty);
 		}
+		else
+		{
+			//aqui es donde hay que mirar las puertas
+		}
+
+		roomList.addItem(auxroom);
 	}
+	drawMap(roomList.getFirst()->data.map, roomList.getFirst()->data.size);
+
+	return 0;
 }
