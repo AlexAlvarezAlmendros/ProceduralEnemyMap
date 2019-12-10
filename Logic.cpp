@@ -13,25 +13,26 @@ void randPos(Enemy & _p, int _i)
 	return;
 };
 
-void initList(List<Enemy> & _ballsList)
+void initList(List<Enemy> & _enemyList)
 {
 	Enemy p;
 
 	for (int i = 0; i < 5; i++)
 	{
 		randPos(p, i);
-		_ballsList.addItem(p);
+
+		_enemyList.addItem(p);
 	}
 	return;
-};
-
-void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballsList)
+}
+void enemyIntoMap(char(&_map)[width][heigth], List<Enemy> _enemyList)
 {
-	int auxLength = _ballsList.getLength();
+	int auxLength = _enemyList.getLength();
 	Enemy aux;
 	for (size_t i = 0; i < auxLength; i++)
 	{
-		aux = _ballsList.getItem(i);
+		aux = _enemyList.getItem(i);
+
 		_map[aux.pos.X][aux.pos.Y] = aux.skin;
 	}
 };
@@ -73,11 +74,11 @@ void drawMap(char(&map)[width][heigth], const int w, const int h)
 			{	
 				if (j + 1== h)
 				{
-					std::cout << "บ\n";		//	ULTIMA CASILLA DEL TEJADO
+					std::cout << "ยบ\n";		//	ULTIMA CASILLA DEL TEJADO
 				}
 				else if (j != h)
 				{
-					std::cout << 'บ';		//	PUERTA TECHO Y TECHO && PUERTA SUELO Y SUELO
+					std::cout << 'ยบ';		//	PUERTA TECHO Y TECHO && PUERTA SUELO Y SUELO
 				}
 			}
 			else							//
@@ -104,21 +105,23 @@ void drawMap(char(&map)[width][heigth], const int w, const int h)
 	}
 }
 
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int _characterX, const int _characterY)
+
+void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_enemyList, const int _characterX, const int _characterY, int &vplayerh)
 {
 	Enemy bAux;
-	int NumBalls = 0;
-	for (int i = 0; i < _ballsList.getLength(); i++)
+	int NumBalls = _enemyList.getLength();
+	for (int i = 0; i < _enemyList.getLength(); i++)
 	{
-		bAux = _ballsList.getItem(i);
+		bAux = _enemyList.getItem(i);
 		if (map[_characterX][_characterY] != bAux.skin && (_characterX == bAux.pos.X && _characterY == bAux.pos.Y))
 		{
-			_ballsList.removeItem(i);
+			_enemyList.removeItem(i);
+			vplayerh--;
+			NumBalls--;
 			return;
 		}
 	}
-	int BallsDestroyed = 0;
-	std::cout << std::endl << "Total bolas: " << NumBalls << std::endl << "Bolas conseguidas: " << BallsDestroyed << std::endl;
+	std::cout << std::endl << "Total bolas: " << NumBalls << std::endl << "Vida: " << vplayerh << std::endl;
 }
 
 void checkDoors(char(&map)[width][heigth], const int w, const int h, int _characterX, int _characterY)
@@ -139,4 +142,77 @@ void checkDoors(char(&map)[width][heigth], const int w, const int h, int _charac
 	{																							//
 		std::cout << "Puerta superior";															//	INDICA LA PUERTA SUPERIOR
 	}
+}
+
+void enemyMovement(char(&_map)[width][heigth], List<Enemy> &_enemyList, const int _characterX, const int _characterY)
+{
+	Enemy aux;
+	for (size_t i = 0; i < _enemyList.getLength(); i++)
+	{
+
+		aux = _enemyList.getItem(i);
+		int x = aux.pos.X;
+		int y = aux.pos.Y;
+		if (_characterX > aux.pos.X and _characterY > aux.pos.Y)
+		{
+			_map[x][y] = ' ';
+			aux.pos.X++;
+			aux.pos.Y++;
+
+		}
+		else if (_characterX < aux.pos.X and _characterY < aux.pos.Y)
+		{
+			_map[x][y] = ' ';
+
+			aux.pos.X--;
+			aux.pos.Y--;
+
+		}
+		else if (_characterY > aux.pos.Y and _characterX < aux.pos.X)
+		{
+			_map[x][y] = ' ';
+			aux.pos.Y++;
+			aux.pos.X--;
+
+		}
+		else if (_characterY < aux.pos.Y and _characterX > aux.pos.X)
+		{
+			_map[x][y] = ' ';
+			aux.pos.Y--;
+			aux.pos.X++;
+
+		}
+		else if (_characterY == aux.pos.Y and _characterX < aux.pos.X)
+		{
+			_map[x][y] = ' ';
+			aux.pos.X--;
+
+		}
+		else if (_characterY == aux.pos.Y and _characterX > aux.pos.X)
+		{
+			_map[x][y] = ' ';
+			aux.pos.X++;
+
+		}
+		else if (_characterY < aux.pos.Y and _characterX == aux.pos.X)
+		{
+			_map[x][y] = ' ';
+			aux.pos.Y--;
+
+		}
+		else if (_characterY > aux.pos.Y and _characterX == aux.pos.X)
+		{
+			_map[x][y] = ' ';
+			aux.pos.Y++;
+
+		}
+		else
+		{
+			return;
+		}
+		_map[aux.pos.X][aux.pos.Y] = aux.skin;
+		_enemyList.getItem(i) = aux;
+
+	}
+	return;
 }

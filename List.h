@@ -25,7 +25,7 @@ private:
 	Node<T> * tail = nullptr;
 	
 
-#pragma region COMPROBACI”N DE SI EST¡ EN LA LISTA
+#pragma region COMPROBACI√ìN DE SI EST√Å EN LA LISTA
 	Node<T> * getNode(int id)
 	{
 		if (id < 0 || id >= length) {
@@ -62,7 +62,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO AL PRINCIPIO (FORMA PREDETERMINADA)
+#pragma region A√ëADE UN NODO AL PRINCIPIO (FORMA PREDETERMINADA)
 	void addItem(T & item)
 	{
 		Node<T> * newNode = new Node<T>;
@@ -86,7 +86,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO DONDE QUERAMOS
+#pragma region A√ëADE UN NODO DONDE QUERAMOS
 	void addItem(T & item, int id)
 	{
 		if (id < 0 || id > length) return;
@@ -137,7 +137,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO AL PRINCIPIO
+#pragma region A√ëADE UN NODO AL PRINCIPIO
 	void pushFront(T & item)
 	{
 		addItem(item);
@@ -167,7 +167,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO AL FINAL
+#pragma region A√ëADE UN NODO AL FINAL
 	void pushBack(T & item)
 	{
 		if (tail == nullptr)
@@ -259,7 +259,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UNA LISTA AL FINAL DE OTRA
+#pragma region A√ëADE UNA LISTA AL FINAL DE OTRA
 	void merge(List & otherList)
 	{
 		if (front == nullptr)
@@ -280,7 +280,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region MUESTRA LA INFORMACI”N DEL NODO QUE QUERAMOS
+#pragma region MUESTRA LA INFORMACI√ìN DEL NODO QUE QUERAMOS
 	T & getItem(const size_t id)
 	{
 		return getNode(id)->data;
@@ -296,7 +296,7 @@ public:
 		return front;
 	}
 
-	//	A—ADIR VARIOS NODOS EN DIFERENTES POSICIONES
+	//	A√ëADIR VARIOS NODOS EN DIFERENTES POSICIONES
 
 	//	ELIMINAR VARIOS NODOS EN DIFERENTES POSICIONES
 };

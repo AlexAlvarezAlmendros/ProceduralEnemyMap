@@ -1,6 +1,6 @@
 #pragma once
 
-// José's Logic
+// JosÃ©'s Logic
 
 double clockToMilliseconds(clock_t ticks);
 
@@ -11,10 +11,13 @@ void drawMap(char(&map)[width][heigth], const int w, const int h);
 
 //	OUR Logic
 
-void initList(List<Enemy> & _ballslist);
+void initList(List<Enemy> & _enemylist);
 
-void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballslist);
+void enemyIntoMap(char(&_map)[width][heigth], List<Enemy> _enemyList);
 
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_ballsList, const int _characterX, const int _characterY);
+void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_enemyList, const int _characterX, const int _characterY, int &vplayerh);
 
 void checkDoors(char(&map)[width][heigth], const int w, const int h, int _characterX, int _characterY);
+
+void enemyMovement(char(&_map)[width][heigth], List<Enemy>& _enemyList, const int _characterX, const int _characterY);
+

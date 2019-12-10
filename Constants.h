@@ -13,8 +13,10 @@
 #define KEY_S 83
 #define KEY_s 115
 
+//Room Constants
 const int width = 12, heigth = 24;
+
+//Player Constants
 const int widthPlayer = width - 1;
 const int heigthPlayer = heigth / 2;
-
-//int playerhp = 10;
+const int playerhealth = 100;

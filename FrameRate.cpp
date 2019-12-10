@@ -11,14 +11,17 @@
 
 int main()
 {
-	List<Enemy> ballsList;
-	initList(ballsList);
+	List<Enemy> enemyList;
+	initList(enemyList);
+
 	clock_t timer = 0;
 	double deltaTime;
 	unsigned int frames = 0;
 	double  frameRate = 120;
 	char map[width][heigth];
 	initMap(map,width, heigth);
+	enemyIntoMap(map, enemyList);
+	int vplayerh = playerhealth;
 	int characterX = widthPlayer;
 	int characterY = heigthPlayer;
 
@@ -28,8 +31,6 @@ int main()
 		std::chrono::high_resolution_clock::time_point beginFrame = std::chrono::high_resolution_clock::now();
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		int c = 0;
-		ballsIntoMap(map, ballsList);
-
 			if (_kbhit()) {
 				switch ((c = _getch())) {
 
@@ -45,6 +46,7 @@ int main()
 					{
 						map[characterX][characterY] = '|';								//	PINTAR ESTELA
 						characterX--;													//	MOVER HACIA ARRIBA POR LA PUERTA
+            enemyMovement(map, enemyList, characterX, characterY);
 					}
 					std::cout << std::endl << "Up" << std::endl;						//	KEY UP
 					break;
@@ -63,6 +65,7 @@ int main()
 						characterX++;													// MOVER HACIA ABAJO POR LA PUERTA
 					}
 					std::cout << std::endl << "Down" << std::endl;						//	KEY DOWN
+					enemyMovement(map, enemyList, characterX, characterY);
 					break;
 
 				case KEY_LEFT:
@@ -79,6 +82,7 @@ int main()
 						characterY--;													//	MOVER HACIA LA IZQUIERDA POR LA PUERTA
 					}
 					std::cout << std::endl << "Left" << std::endl;						//	KEY LEFT
+					enemyMovement(map, enemyList, characterX, characterY);
 					break;
 
 				case KEY_RIGHT:
@@ -95,6 +99,7 @@ int main()
 						characterY++;													//	MOVER HACIA LA DERECHA POR LA PUERTA
 					}
 					std::cout << std::endl << "Right" << std::endl;						//	KEY RIGHT
+					enemyMovement(map, enemyList, characterX, characterY);
 					break;
 
 				case 63:
@@ -114,7 +119,7 @@ int main()
 
 			system("cls");
 			drawMap(map,width, heigth);
-			checkMapBalls(map, ballsList, characterX, characterY);
+			checkMapBalls(map, enemyList, characterX, characterY, vplayerh);
 			checkDoors(map, width, heigth, characterX, characterY);
 			
 		std::chrono::high_resolution_clock::time_point endFrame = std::chrono::high_resolution_clock::now();
@@ -125,26 +130,25 @@ int main()
 		frames++;
 		std::cout <<"\nDelta Time: " << deltaTime / 1000.0f << std::endl;
 		std::cout << time/1000.0f << std::endl;
-		std::cout << "List length: " << ballsList.getLength() << std::endl;
-		std::cout << "X: " << characterX << "Y: " << characterY;
+		std::cout << "List length: " << enemyList.getLength() << std::endl;
+		std::cout << "X: " << characterX << " | Y: " << characterY;
 		//if you really want FPS
 		 if (timer >= 1000.0) { //every second
-			 std::cout << "Frames:" << frames << std::endl;
+			 std::cout << " Frames: " << frames << std::endl;
 			timer = 0.0f;
 			frames = 60;
-		
-
 		}
 		 /*FrameRate Limit*/
 		 else if (frames >= frameRate)
 		 {
 			 std::cout << "Wait" << std::endl;
 			 std::this_thread::sleep_for(std::chrono::milliseconds((long)(1000.0f - timer)));
+
 			 time += 1000.0f - timer;
 			 frames = 0;
 			 timer = 0.0f;
 		 }
 	}
-	ballsList.clear();
+	enemyList.clear();
 	return 0;
 }
