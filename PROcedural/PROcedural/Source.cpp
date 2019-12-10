@@ -1,7 +1,6 @@
 #include "Declarations.h"
 #include "Structures.h"
 
-
 List<room> roomList;
 
 void Init()

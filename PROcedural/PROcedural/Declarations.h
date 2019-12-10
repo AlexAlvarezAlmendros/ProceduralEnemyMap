@@ -21,3 +21,6 @@ void Destroy();
 void FrameRate();
 
 void InitGame(room& _room, char& _difficulty);
+
+room * start;
+room * end;
