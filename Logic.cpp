@@ -7,11 +7,11 @@
 #include "Structures.h"
 
 
-void initList(List<Enemy> & _ballsList)
+void initList(List<Enemy> & _ballsList, int _p)
 {
 	Enemy p;
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < _p; i++)
 	{
 		randPos(p, i);
 		_ballsList.addItem(p);

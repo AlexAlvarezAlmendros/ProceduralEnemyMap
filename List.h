@@ -14,11 +14,10 @@ struct Node
 template <class T>
 struct List
 {
-	int length = 0;
 private:
 	Node<T> * front = nullptr;
 	Node<T> * tail = nullptr;
-
+	int length = 0;
 
 #pragma region COMPROBACIÓN DE SI ESTÁ EN LA LISTA
 	Node<T> * getNode(int id)
