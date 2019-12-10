@@ -4,10 +4,10 @@
 
 template <class T>
 struct Node
-{ 
+{
 	T data;
-	Node<T> * next = nullptr;
-	Node<T> * back = nullptr;
+	Node<T>* next = nullptr;
+	Node<T>* back = nullptr;
 };
 
 //std::ostream & operator << (std::ostream & out, Player p)
@@ -19,15 +19,18 @@ struct Node
 template <class T>
 struct List
 {
+	int length = 0;
 private:
 	Node<T> * front = nullptr;
 	Node<T> * tail = nullptr;
-	int length = 0;
+	
 
-#pragma region COMPROBACI”N DE SI EST¡ EN LA LISTA
+#pragma region COMPROBACI√ìN DE SI EST√Å EN LA LISTA
 	Node<T> * getNode(int id)
 	{
-		if (id < 0 || id >= length) return nullptr;
+		if (id < 0 || id >= length) {
+			return nullptr;
+		}
 		bool isBackwards = id > length >> 1 ? true : false;
 
 		Node<T> * count = isBackwards ? tail : front;
@@ -53,13 +56,13 @@ private:
 public:
 
 #pragma region RETORNA EL LENGTH0
-	const int & getLength()
+	int & getLength()
 	{
 		return length;
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO AL PRINCIPIO (FORMA PREDETERMINADA)
+#pragma region A√ëADE UN NODO AL PRINCIPIO (FORMA PREDETERMINADA)
 	void addItem(T & item)
 	{
 		Node<T> * newNode = new Node<T>;
@@ -83,7 +86,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO DONDE QUERAMOS
+#pragma region A√ëADE UN NODO DONDE QUERAMOS
 	void addItem(T & item, int id)
 	{
 		if (id < 0 || id > length) return;
@@ -134,7 +137,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO AL PRINCIPIO
+#pragma region A√ëADE UN NODO AL PRINCIPIO
 	void pushFront(T & item)
 	{
 		addItem(item);
@@ -146,9 +149,16 @@ public:
 	{
 		if (front == nullptr) return;
 		Node<T> * countNode = front->next;
-		countNode->back = nullptr;
-		delete front;
-		front = countNode;
+		if (countNode == nullptr)
+		{
+			delete front;
+			front = nullptr;
+		}
+		else {
+			countNode->back = nullptr;
+			delete front;
+			front = countNode;
+		}
 		if (length == 1) {
 			front = nullptr;
 			tail = nullptr;
@@ -157,7 +167,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UN NODO AL FINAL
+#pragma region A√ëADE UN NODO AL FINAL
 	void pushBack(T & item)
 	{
 		if (tail == nullptr)
@@ -214,16 +224,28 @@ public:
 #pragma region BORRA EL NODO QUE QUERAMOS
 	void removeItem(const size_t id)
 	{
-		if (id < 0 || id >= length) return;
-		if (id == 0) { popFront(); return; }
-		if (id == length - 1) { popBack(); return; }
+		/*int AuxLength = getLength();*/
+		if (id < 0 || id > length)
+		{
+			return;
+		}
+		else if (id == 0) 
+		{
+			popFront();
+			return;
+		}
+		else if (id == length - 1)
+		{
+			popBack();
+			return;
+		}
 
 		Node<T> * deleteNode = getNode(id);
 		deleteNode->next->back = deleteNode->back;
 		deleteNode->back->next = deleteNode->next;
 
 		delete deleteNode;
-		length--;
+		length-=1;
 	}
 #pragma endregion
 
@@ -237,7 +259,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region A—ADE UNA LISTA AL FINAL DE OTRA
+#pragma region A√ëADE UNA LISTA AL FINAL DE OTRA
 	void merge(List & otherList)
 	{
 		if (front == nullptr)
@@ -258,7 +280,7 @@ public:
 	}
 #pragma endregion
 
-#pragma region MUESTRA LA INFORMACI”N DEL NODO QUE QUERAMOS
+#pragma region MUESTRA LA INFORMACI√ìN DEL NODO QUE QUERAMOS
 	T & getItem(const size_t id)
 	{
 		return getNode(id)->data;
@@ -274,7 +296,7 @@ public:
 		return front;
 	}
 
-	//	A—ADIR VARIOS NODOS EN DIFERENTES POSICIONES
+	//	A√ëADIR VARIOS NODOS EN DIFERENTES POSICIONES
 
 	//	ELIMINAR VARIOS NODOS EN DIFERENTES POSICIONES
 };

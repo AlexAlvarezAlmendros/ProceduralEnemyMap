@@ -13,8 +13,10 @@
 #define KEY_S 83
 #define KEY_s 115
 
-const int width = 25, heigth = 50;
-const char enemySkin = 'X';
-const char playerSkin = 'O';
+//Room Constants
+const int width = 12, heigth = 24;
 
-//int playerhp = 10;
+//Player Constants
+const int widthPlayer = width - 1;
+const int heigthPlayer = heigth / 2;
+const int playerhealth = 100;
