@@ -6,8 +6,9 @@
 
 #include "Constants.h"
 #include "Declarations.h"
+#include "Structures.h"
 
-void FrameRate(room)
+void FrameRate(room _room, int _playerhp)
 {
 	clock_t time = 0;
 	while (true) {
@@ -15,7 +16,7 @@ void FrameRate(room)
 		std::chrono::high_resolution_clock::time_point beginFrame = std::chrono::high_resolution_clock::now();
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		int c = 0;
-		ballsIntoMap(map, ballsList);
+		//ballsIntoMap(map, ballsList);
 
 		if (_kbhit()) {
 			switch ((c = _getch())) {
@@ -23,10 +24,10 @@ void FrameRate(room)
 			case KEY_UP:
 			case KEY_W:
 			case KEY_w:
-				if (characterX > width - width)
+				if (_room.player.pos.X > _room.size - _room.size)
 				{
-					map[characterX][characterY] = '|';
-					characterX--;
+					_room.map[_room.player.pos.X][_room.player.pos.X] = ' ';
+					_room.player.pos.X--;
 				}
 				std::cout << std::endl << "Up" << std::endl; //key up
 				break;
@@ -34,10 +35,10 @@ void FrameRate(room)
 			case KEY_DOWN:
 			case KEY_S:
 			case KEY_s:
-				if (characterX < width - 1)
+				if (_room.player.pos.X < _room.size - 1)
 				{
-					map[characterX][characterY] = '|';
-					characterX++;
+					_room.map[_room.player.pos.X][_room.player.pos.X] = ' ';
+					_room.player.pos.X++;
 				}
 				std::cout << std::endl << "Down" << std::endl; // key down
 				break;
@@ -45,10 +46,10 @@ void FrameRate(room)
 			case KEY_LEFT:
 			case KEY_A:
 			case KEY_a:
-				if (characterY > heigth - heigth)
+				if (_room.player.pos.Y > _room.size - _room.size)
 				{
-					map[characterX][characterY] = '--';
-					characterY--;
+					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
+					_room.player.pos.Y--;
 				}
 				std::cout << std::endl << "Left" << std::endl; // key left
 				break;
@@ -56,16 +57,16 @@ void FrameRate(room)
 			case KEY_RIGHT:
 			case KEY_D:
 			case KEY_d:
-				if (characterY < heigth - 1)
+				if (_room.player.pos.Y < _room.size - 1)
 				{
-					map[characterX][characterY] = '--';
-					characterY++;
+					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
+					_room.player.pos.Y++;
 				}
 				std::cout << std::endl << "Right" << std::endl; // key right
 				break;
 
 			case KEY_F5:
-				initMap(map, 25, 25);
+				//initMap(map, 25, 25);
 				std::cout << std::endl << "CLEAR PATH" << std::endl; // clear path from screen
 				break;
 
@@ -76,11 +77,11 @@ void FrameRate(room)
 				break;
 			}
 		}
-		map[characterX][characterY] = 'O';
+		_room.map[_room.player.pos.X][_room.player.pos.X] = 'O';
 
 		system("cls");
-		drawMap(map, width, heigth);
-		checkMapBalls(map, ballsList, width, heigth);
+		//drawMap(map, width, heigth);
+		//checkMapBalls(map, ballsList, width, heigth);
 
 
 		std::chrono::high_resolution_clock::time_point endFrame = std::chrono::high_resolution_clock::now();
@@ -108,6 +109,6 @@ void FrameRate(room)
 			timer = 0.0f;
 		}
 	}
-	ballsList.clear();
+	//ballsList.clear();
 	return 0;
 }

@@ -13,8 +13,10 @@ int SetDifficulty(room &_room, char &_difficulty);
 void InitEnemyList(List<Enemy> &_enemyList, int _enemyNum, int _size);
 
 
-
 void GameLoop();
+
+void FrameRate(room &_room, int _playerhp)
+
 
 void Destroy();
 
