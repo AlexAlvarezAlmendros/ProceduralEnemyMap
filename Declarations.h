@@ -1,24 +1,6 @@
-<<<<<<< Updated upstream
 #pragma once
 
-double clockToMilliseconds(clock_t ticks);
-
-void initMap(char(&map)[width][heigth], const int w, const int h);
-
-void drawMap(char(&map)[width][heigth], const int w, const int h);
-
-
-//	CARNAL
-
-void initList(List<Enemy> & _ballslist);
-
-void ballsIntoMap(char(&_map)[width][heigth], List<Enemy> _ballslist);
-
-void checkMapBalls(char(&map)[width][heigth], List<Enemy> _ballsList, const int w, const int h);
-=======
-#pragma once
-
-// José's Logic
+// JosÃ©'s Logic
 
 double clockToMilliseconds(clock_t ticks);
 
@@ -38,4 +20,4 @@ void checkMapBalls(char(&map)[width][heigth], List<Enemy> &_enemyList, const int
 void checkDoors(char(&map)[width][heigth], const int w, const int h, int _characterX, int _characterY);
 
 void enemyMovement(char(&_map)[width][heigth], List<Enemy>& _enemyList, const int _characterX, const int _characterY);
->>>>>>> Stashed changes
+

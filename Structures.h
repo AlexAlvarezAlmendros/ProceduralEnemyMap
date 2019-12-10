@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Constants.h"
+#include "List.h"
 
 struct Position2D
 {
@@ -14,15 +16,17 @@ struct Player
 
 struct Enemy
 {
-	char skin = enemySkin;
+	char skin = 'X';
 	Position2D pos;
 };
 
-template <class T>
-struct room
-{
-	room<T> * north = nullptr;
-	room<T> * south = nullptr;
-	room<T> * east = nullptr;
-	room<T> * west = nullptr;
-};
+//struct room
+//{
+//	room * north = nullptr;
+//	room * south = nullptr;
+//	room * east = nullptr;
+//	room * west = nullptr;
+//	Player player;
+//	List<Enemy> enemylist;
+//	char RoomMap[MapWidth][MapHeigth];
+//};
