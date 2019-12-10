@@ -1,7 +1,0 @@
-﻿  Source.cpp
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(55): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(79): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(81): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\justtrying\justtrying\source.cpp(143): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  JustTrying.vcxproj -> C:\Users\Gerard.palauribes\Documents\GitHub\ProceduralEnemyMap\JustTrying\x64\Debug\JustTrying.exe

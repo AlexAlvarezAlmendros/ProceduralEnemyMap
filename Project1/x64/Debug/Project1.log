@@ -1,4 +1,0 @@
-﻿  FrameRate.cpp
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\array.h(85): warning C4018: '>': signed/unsigned mismatch
-c:\users\gerard.palauribes\documents\github\proceduralenemymap\structures.h(68): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Project1.vcxproj -> C:\Users\Gerard.palauribes\Documents\GitHub\ProceduralEnemyMap\Project1\x64\Debug\Project1.exe
