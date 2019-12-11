@@ -12,7 +12,7 @@ void Init()
 
 void GameLoop()
 {
-
+	FrameRate(_room, playerhp);
 }
 
 void Destroy()

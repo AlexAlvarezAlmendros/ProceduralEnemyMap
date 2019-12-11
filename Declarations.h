@@ -15,11 +15,18 @@ void InitEnemyList(List<Enemy> &_enemyList, int _enemyNum, int _size);
 
 void GameLoop();
 
-void FrameRate(room &_room, int _playerhp)
+double clockToMilliseconds(clock_t ticks);
 
+void enemyIntoMap(room &_room);
 
-void Destroy();
+void drawMap(room &_room);
 
-void FrameRate();
+void checkMapBalls(room &_room);
 
-void InitGame(room& _room, char& _difficulty);
+void checkDoors(room &_room);
+
+void FrameRate(room &_room, int _playerhp);
+
+//void Destroy();
+
+void InitGame(room &_room, char& _difficulty);

@@ -19,7 +19,6 @@ private:
 	Node<T> * tail = nullptr;
 	int length = 0;
 
-#pragma region COMPROBACIÓN DE SI ESTÁ EN LA LISTA
 	Node<T> * getNode(int id)
 	{
 		if (id < 0 || id >= length) {
@@ -45,18 +44,14 @@ private:
 		}
 		return count;
 	}
-#pragma endregion
 
 public:
 
-#pragma region RETORNA EL LENGTH0
 	int & getLength()
 	{
 		return length;
 	}
-#pragma endregion
 
-#pragma region AÑADE UN NODO AL PRINCIPIO (FORMA PREDETERMINADA)
 	void addItem(T & item)
 	{
 		Node<T> * newNode = new Node<T>;
@@ -77,9 +72,7 @@ public:
 		}
 		length++;
 	}
-#pragma endregion
 
-#pragma region AÑADE UN NODO DONDE QUERAMOS
 	void addItem(T & item, int id)
 	{
 		if (id < 0 || id > length) return;
@@ -99,16 +92,12 @@ public:
 			length++;
 		}
 	}
-#pragma endregion
 
-#pragma region AÑADE UN NODO AL PRINCIPIO
 	void pushFront(T & item)
 	{
 		addItem(item);
 	}
-#pragma endregion
 
-#pragma region ELIMINA EL NODO DEL PRINCIPIO
 	void popFront()
 	{
 		if (front == nullptr) return;
@@ -129,9 +118,7 @@ public:
 		}
 		length--;
 	}
-#pragma endregion
 
-#pragma region AÑADE UN NODO AL FINAL
 	void pushBack(T & item)
 	{
 		if (tail == nullptr)
@@ -146,13 +133,10 @@ public:
 		tail = newNode;
 		length++;
 	}
-#pragma endregion
 
-#pragma region ELIMINA EL NODO DEL FINAL
 	void popBack()
 	{
 		if (tail == nullptr) return;
-
 		Node<T> * countNode = tail->back;
 
 		delete tail;
@@ -165,9 +149,7 @@ public:
 		}
 		length--;
 	}
-#pragma endregion
 
-#pragma region BORRA EL NODO QUE QUERAMOS
 	void removeItem(const size_t id)
 	{
 		if (id < 0 || id > length)
@@ -192,9 +174,7 @@ public:
 		delete deleteNode;
 		length -= 1;
 	}
-#pragma endregion
 
-#pragma region LIMPIA LA LISTA
 	void clear()
 	{
 		while (front != nullptr)
@@ -202,9 +182,7 @@ public:
 			popFront();
 		}
 	}
-#pragma endregion
 
-#pragma region AÑADE UNA LISTA AL FINAL DE OTRA
 	void merge(List & otherList)
 	{
 		if (front == nullptr)
@@ -223,14 +201,11 @@ public:
 		}
 		length += otherList.length;
 	}
-#pragma endregion
 
-#pragma region MUESTRA LA INFORMACIÓN DEL NODO QUE QUERAMOS
 	T & getItem(const size_t id)
 	{
 		return getNode(id)->data;
 	}
-#pragma endregion
 
 	T & operator [] (size_t index) {
 		return getItem(index);
