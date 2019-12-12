@@ -4,9 +4,7 @@
 #include <array>
 #include <conio.h>
 
-#include "Constants.h"
 #include "Declarations.h"
-#include "Structures.h"
 
 double clockToMilliseconds(clock_t ticks) {
 	// units/(units/time) => time (seconds) * 1000 = milliseconds
@@ -94,7 +92,7 @@ void checkMapBalls(room &_room)
 	int NumBalls = 0;
 	for (size_t i = 0; i < _room.enemyList.getLength(); i++)
 	{
-		bAux = _room.enemyList.getLength(i);
+		bAux = _room.enemyList.getItem(i);
 		if (_room.map[_room.player.pos.X][_room.player.pos.Y] != bAux.skin && (_room.player.pos.X == bAux.pos.X && _room.player.pos.Y == bAux.pos.Y))
 		{
 			_room.enemyList.removeItem(i);
@@ -133,9 +131,15 @@ void checkDoors(room &_room)
 	}
 }
 
-void FrameRate(room &_room, int _playerhp)
+room *FrameRate(room &_room, int &_playerhp)
 {
+	room *nextRoom;
+	clock_t timer = 0;
 	clock_t time = 0;
+	double deltaTime;
+	unsigned int frames = 0;
+	double frameRate = 120;
+
 	while (true) {
 
 		std::chrono::high_resolution_clock::time_point beginFrame = std::chrono::high_resolution_clock::now();
@@ -236,5 +240,5 @@ void FrameRate(room &_room, int _playerhp)
 		}
 	}
 	//ballsList.clear();
-	return 0;
+	return nextRoom;
 }

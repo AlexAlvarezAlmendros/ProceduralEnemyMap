@@ -30,3 +30,6 @@ struct room
 	int size;
 	int startEnemyNum;
 };
+
+room *start;
+room *end;

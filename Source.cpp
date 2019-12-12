@@ -1,6 +1,6 @@
-#include "Declarations.h"
-#include "Structures.h"
+#include <iostream>
 
+#include "Declarations.h"
 
 List<room> roomList;
 
@@ -12,18 +12,23 @@ void Init()
 
 void GameLoop()
 {
-	FrameRate(_room, playerhp);
-}
+	room *nextRoom;
+	room *actualRoom = start;
 
-void Destroy()
-{
-
+	nextRoom = FrameRate(*actualRoom, playerhp);
+	if (nextRoom == end)
+	{
+		system("CLS");
+		std::cout << "YOU WIN!";
+		return;
+	}
+	actualRoom = nextRoom;
 }
 
 int main()
 {
 	Init();
 	GameLoop();
-	Destroy();
+	Destroy(roomList);
 	return 0;
 }

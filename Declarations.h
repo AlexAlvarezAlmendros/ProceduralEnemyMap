@@ -1,4 +1,6 @@
 #pragma once
+#include <ctime>
+#include "Structures.h"
 
 void Init();
 
@@ -25,8 +27,9 @@ void checkMapBalls(room &_room);
 
 void checkDoors(room &_room);
 
-void FrameRate(room &_room, int _playerhp);
+room *FrameRate(room &_room, int &_playerhp);
 
-//void Destroy();
 
-void InitGame(room &_room, char& _difficulty);
+void Destroy(List<room> &_roomList);
+
+//void InitGame(room &_room, char& _difficulty);
