@@ -26,7 +26,7 @@ char AskDifficulty()
 	return difficulty;
 }
 
-void InitRoomList(List<room> &_level, char &_difficulty)
+void InitRoomList(List<room> &_level, char &_difficulty, room *_start, room *_end)
 {
 	srand(time(NULL));
 	short mainPathSize = rand() % Max_MainPath + Min_MainPath;
@@ -105,18 +105,18 @@ void InitRoomList(List<room> &_level, char &_difficulty)
 			}
 			if (i == mainPathSize - 1)
 			{
-				end = &room1;
+				_end = &room1;
 			}
 			_level.addItem(room2);
 		}
 		else
 		{
 			_level.addItem(room1);
-			start = &_level.getFirst()->data;
+			_start = &_level.getFirst()->data;
 		}
 		if (i == mainPathSize - 1)
 		{
-			end = &_level.getFirst()->data;
+			_end = &_level.getFirst()->data;
 		}
 	}
 	return;

@@ -15,7 +15,8 @@ double clockToMilliseconds(clock_t ticks) {
 void enemyIntoMap(room &_room)
 {
 	Enemy aux;
-	for (size_t i = 0; i < _room.enemyList.getLength(); i++)
+	short length = _room.enemyList.getLength();
+	for (size_t i = 0; i < length; i++)
 	{
 		aux = _room.enemyList.getItem(i);
 		_room.map[aux.pos.X][aux.pos.Y] = aux.skin;

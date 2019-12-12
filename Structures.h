@@ -31,5 +31,3 @@ struct room
 	int startEnemyNum;
 };
 
-room *start;
-room *end;

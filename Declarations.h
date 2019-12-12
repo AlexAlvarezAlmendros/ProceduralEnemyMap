@@ -2,11 +2,11 @@
 #include <ctime>
 #include "Structures.h"
 
-void Init();
+void Init(room *_start, room *_end);
 
 char AskDifficulty();
 
-void InitRoomList(List<room> &_level, char &_difficulty);
+void InitRoomList(List<room> &_level, char &_difficulty, room *_start, room *_end);
 
 void BasicInitRoom(room &_room, char &_difficulty);
 
@@ -26,8 +26,6 @@ void drawMap(room &_room);
 void checkMapBalls(room &_room);
 
 void checkDoors(room &_room);
-
-void enemyMovement(char(&_map)[width][heigth], List<Enemy> &_enemyList, const int _characterX, const int _characterY);
 
 room *FrameRate(room &_room, int &_playerhp);
 
