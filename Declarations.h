@@ -27,6 +27,8 @@ void checkMapBalls(room &_room);
 
 void checkDoors(room &_room);
 
+void enemyMovement(char(&_map)[width][heigth], List<Enemy> &_enemyList, const int _characterX, const int _characterY);
+
 room *FrameRate(room &_room, int &_playerhp);
 
 
