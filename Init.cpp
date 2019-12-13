@@ -32,16 +32,48 @@ void InitRoomList(List<room> &_level, char &_difficulty, room *_start, room *_en
 	short mainPathSize = rand() % Max_MainPath + Min_MainPath;
 
 	//	FASE 1 DOORS
-	room room1;
 	for (size_t i = 0; i < mainPathSize; i++) //GENERACION DE ROOMS
 	{
-
+		room room1;
 		BasicInitRoom(room1, _difficulty);
 		if (i != 0)
 		{
 			room *prevroom = &_level.getFirst()->data;
 			room room2;
 			short random = 4;
+
+			if (i == 1)
+			{
+				short rands = rand() % 4;
+
+				switch (rands)
+				{
+				case 0:
+					room2.west = prevroom;
+					prevroom->east = &room2;
+
+					break;
+				case 1:
+					room2.east = prevroom;
+					prevroom->west = &room2;
+
+					break;
+
+				case 2:
+					room2.south = prevroom;
+					prevroom->north = &room2;
+
+					break;
+
+				case 3:
+					room2.north = prevroom;
+					prevroom->south = &room2;
+
+					break;
+				default:
+					break;
+				}
+			}
 
 			if (prevroom->east != nullptr)
 			{
