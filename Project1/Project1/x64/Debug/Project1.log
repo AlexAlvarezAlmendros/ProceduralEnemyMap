@@ -1,0 +1,39 @@
+﻿  Destroy.cpp
+  GameLoop.cpp
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(219): warning C4244: '=': conversion from '_Rep' to 'double', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(220): warning C4244: '+=': conversion from 'double' to 'clock_t', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(221): warning C4244: '+=': conversion from 'double' to 'clock_t', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(228): warning C4244: '=': conversion from 'float' to 'clock_t', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(238): warning C4244: '+=': conversion from 'float' to 'clock_t', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(240): warning C4244: '=': conversion from 'float' to 'clock_t', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\list.h(206): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  c:\users\gerard.palauribes\desktop\procedural\project1\project1\list.h(205): note: while compiling class template member function 'T &List<T>::getItem(const size_t)'
+          with
+          [
+              T=Enemy
+          ]
+  c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(21): note: see reference to function template instantiation 'T &List<T>::getItem(const size_t)' being compiled
+          with
+          [
+              T=Enemy
+          ]
+  c:\users\gerard.palauribes\desktop\procedural\project1\project1\structures.h(27): note: see reference to class template instantiation 'List<Enemy>' being compiled
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\list.h(169): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  c:\users\gerard.palauribes\desktop\procedural\project1\project1\list.h(153): note: while compiling class template member function 'void List<Enemy>::removeItem(const size_t)'
+  c:\users\gerard.palauribes\desktop\procedural\project1\project1\gameloop.cpp(99): note: see reference to function template instantiation 'void List<Enemy>::removeItem(const size_t)' being compiled
+  Init.cpp
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(82): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(90): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(98): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(106): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(185): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(214): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\gerard.palauribes\desktop\procedural\project1\project1\init.cpp(216): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Source.cpp
+  Generating Code...
+  Project1.vcxproj -> C:\Users\gerard.palauribes\Desktop\PROcedural\Project1\x64\Debug\Project1.exe
