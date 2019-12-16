@@ -1,0 +1,22 @@
+﻿  Destroy.cpp
+  GameLoop.cpp
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(237,97): warning C4244: '=': conversión de '_Rep' a 'clock_t'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(237,97): warning C4244:         with
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(237,97): warning C4244:         [
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(237,97): warning C4244:             _Rep=__int64
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(237,97): warning C4244:         ]
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(249,12): warning C4244: '=': conversión de 'float' a 'clock_t'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(259,27): warning C4244: '+=': conversión de 'float' a 'clock_t'; posible pérdida de datos
+  Init.cpp
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\GameLoop.cpp(261,12): warning C4244: '=': conversión de 'float' a 'clock_t'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(31,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(82,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(90,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(98,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(106,16): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(178,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(207,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Source.cpp
+  Generando código...
+C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\ULTIMATE_BROMIUM\Init.cpp(209,13): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  ULTIMATE_BROMIUM.vcxproj -> C:\Users\alexb\source\repos\ULTIMATE_BROMIUM\x64\Debug\ULTIMATE_BROMIUM.exe
