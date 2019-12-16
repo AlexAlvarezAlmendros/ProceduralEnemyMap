@@ -90,9 +90,10 @@ void drawMap(room &_room)
 void checkMapBalls(room &_room)
 {
 	Enemy bAux;
-	int NumBalls = 0;
+	int NumBalls = _room.enemyList.getLength();
 	for (size_t i = 0; i < _room.enemyList.getLength(); i++)
 	{
+
 		bAux = _room.enemyList.getItem(i);
 		if (_room.map[_room.player.pos.X][_room.player.pos.Y] != bAux.skin && (_room.player.pos.X == bAux.pos.X && _room.player.pos.Y == bAux.pos.Y))
 		{
@@ -107,7 +108,7 @@ void checkMapBalls(room &_room)
 void checkDoors(room &_room)
 {
 	//	COMPRUEBA LA PUERTA IZQUIERDA
-	if (_room.player.pos.X == _room.size / 2 && _room.player.pos.Y == _room.size - _room.size - 1)
+	if (_room.player.pos.X == _room.size / 2 && _room.player.pos.Y == _room.size - _room.size + 1)
 	{
 		//	INDICA LA PUERTA IZQUIERDA
 		std::cout << "Puerta izquierda";
@@ -144,7 +145,6 @@ room *FrameRate(room &_room, int &_playerhp)
 	while (true) {
 
 		std::chrono::high_resolution_clock::time_point beginFrame = std::chrono::high_resolution_clock::now();
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		int c = 0;
 		enemyIntoMap(_room);
 
@@ -156,7 +156,7 @@ room *FrameRate(room &_room, int &_playerhp)
 			case KEY_w:
 				if (_room.player.pos.X > _room.size - _room.size)
 				{
-					_room.map[_room.player.pos.X][_room.player.pos.X] = ' ';
+					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.X--;
 				}
 				std::cout << std::endl << "Up" << std::endl; //key up
@@ -167,7 +167,7 @@ room *FrameRate(room &_room, int &_playerhp)
 			case KEY_s:
 				if (_room.player.pos.X < _room.size - 1)
 				{
-					_room.map[_room.player.pos.X][_room.player.pos.X] = ' ';
+					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.X++;
 				}
 				std::cout << std::endl << "Down" << std::endl; // key down
@@ -207,11 +207,12 @@ room *FrameRate(room &_room, int &_playerhp)
 				break;
 			}
 		}
-		_room.map[_room.player.pos.X][_room.player.pos.X] = 'O';
+		_room.map[_room.player.pos.X][_room.player.pos.Y] = 'O';
 
 		system("cls");
 		drawMap(_room);
 		checkMapBalls(_room);
+		checkDoors(_room);
 
 
 		std::chrono::high_resolution_clock::time_point endFrame = std::chrono::high_resolution_clock::now();

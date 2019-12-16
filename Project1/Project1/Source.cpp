@@ -31,6 +31,7 @@ int main()
 {
 
 	Init(start, end);
+
 	GameLoop();
 	Destroy(roomList);
 	return 0;
