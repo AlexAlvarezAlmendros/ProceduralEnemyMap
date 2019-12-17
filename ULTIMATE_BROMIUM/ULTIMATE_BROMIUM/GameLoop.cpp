@@ -49,11 +49,19 @@ void drawMap(room &_room)
 					std::cout << 'º';
 				}
 			}
-			else if (i != roomSize / 2 && j == 0)
+			else if (j == 0 && i != roomSize / 2 || j == roomSize - 1 && i != roomSize / 2)
 			{
 				
-				//	PARED Y PUERTA IZQUIERDA
-				std::cout << '|';
+				if (j == 0 && i != roomSize)
+				{
+					//	PARED Y PUERTA IZQUIERDA
+					std::cout << '|';
+				}
+				else if (j == roomSize - 1 && i != roomSize)
+				{
+					//	PARED Y PUERTA DERECHA
+					std::cout << "|";
+				}
 			}
 			else
 			{
@@ -74,8 +82,8 @@ void drawMap(room &_room)
 			}
 			else
 			{
-				//	PARED DERECHA
-				std::cout << "|\n";
+				//	PARED FALSA DERECHA
+				std::cout << " \n";
 			}
 			//	SIN PARED DERECHA
 			//std::cout << "\n";
@@ -83,11 +91,9 @@ void drawMap(room &_room)
 	}
 }
 
-
-void checkMapBalls(room &_room)
+void checkMapBalls(room& _room)
 {
 	Enemy bAux;
-	/*int NumBalls = 0;*/
 	for (size_t i = 0; i < _room.enemyList.getLength(); i++)
 	{
 		bAux = _room.enemyList.getItem(i);
@@ -97,8 +103,6 @@ void checkMapBalls(room &_room)
 			return;
 		}
 	}
-	/*int BallsDestroyed = 0;
-	std::cout << std::endl << "Total bolas: " << NumBalls << std::endl << "Bolas conseguidas: " << BallsDestroyed << std::endl;*/
 }
 
 void checkDoors(room &_room)
@@ -110,7 +114,7 @@ void checkDoors(room &_room)
 		std::cout << "Puerta izquierda";
 	}
 	//	COMPRUEBA LA PUERTA DERECHA
-	else if (_room.player.pos.X == _room.size / 2 && _room.player.pos.Y == _room.size)
+	else if (_room.player.pos.X == _room.size / 2 && _room.player.pos.Y == _room.size - 1)
 	{
 		//	INDICA LA PUERTA DERECHA
 		std::cout << "Puerta derecha";
@@ -129,7 +133,7 @@ void checkDoors(room &_room)
 	}
 }
 
-room *FrameRate(room &_room, int &_playerhp)
+room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 {
 	room *nextRoom;
 	clock_t timer = 0;
@@ -199,23 +203,17 @@ room *FrameRate(room &_room, int &_playerhp)
 			case KEY_RIGHT:
 			case KEY_D:
 			case KEY_d:
-				if (_room.player.pos.Y < _room.size - 1)
+				if (_room.player.pos.Y < _room.size - 2)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.Y++;
 				}
-				else if (_room.player.pos.Y < _room.size && _room.player.pos.X == _room.size / 2)
+				else if (_room.player.pos.Y < _room.size - 1&& _room.player.pos.X == _room.size / 2)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.Y++;
-					std::cout << "Puerta derecha";
 				}
 				std::cout << std::endl << "Right" << std::endl; // key right
-				break;
-
-			case KEY_F5:
-				//initMap(map, 25, 25);
-				std::cout << std::endl << "CLEAR PATH" << std::endl; // clear path from screen
 				break;
 
 			default:
@@ -242,14 +240,14 @@ room *FrameRate(room &_room, int &_playerhp)
 		std::cout << "\nTiempo: " << time / 1000.0f;
 		std::cout << "\nX: " << _room.player.pos.X << " Y: " << _room.player.pos.Y;
 		std::cout << "\nRoom Size: " << _room.size;
-		std::cout << "\nList length: " << _room.enemyList.getLength() << std::endl;
+		std::cout << "\nList length: " << _room.enemyList.getLength();
+		std::cout << "\nList rooms: " << _listRoom.getLength() << std::endl;
+
 		//if you really want FPS
 		if (timer >= 1000.0) { //every second
 			std::cout << "Frames:" << frames << std::endl;
 			timer = 0.0f;
 			frames = 60;
-
-
 		}
 		/*FrameRate Limit*/
 		else if (frames >= frameRate)
@@ -261,6 +259,5 @@ room *FrameRate(room &_room, int &_playerhp)
 			timer = 0.0f;
 		}
 	}
-	//ballsList.clear();
 	return nextRoom;
 }

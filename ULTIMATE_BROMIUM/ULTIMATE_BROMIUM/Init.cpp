@@ -45,30 +45,24 @@ void InitRoomList(List<room> &_level, char &_difficulty, room* &_start, room* &_
 			if (i == 1)
 			{
 				short rands = rand() % 4;
-
 				switch (rands)
 				{
 				case 0:
 					room2->west = prevroom;
 					prevroom->east = room2;
-
 					break;
 				case 1:
 					room2->east = prevroom;
 					prevroom->west = room2;
-
 					break;
 
 				case 2:
 					room2->south = prevroom;
 					prevroom->north = room2;
-
 					break;
-
 				case 3:
 					room2->north = prevroom;
 					prevroom->south = room2;
-
 					break;
 				default:
 					break;
@@ -113,24 +107,20 @@ void InitRoomList(List<room> &_level, char &_difficulty, room* &_start, room* &_
 			case 0:
 				room2->west = prevroom;
 				prevroom->east = room2;
-
 				break;
 			case 1:
 				room2->east = prevroom;
 				prevroom->west = room2;
-
 				break;
 
 			case 2:
 				room2->south = prevroom;
 				prevroom->north = room2;
-
 				break;
 
 			case 3:
 				room2->north = prevroom;
 				prevroom->south = room2;
-
 				break;
 			default:
 				break;
