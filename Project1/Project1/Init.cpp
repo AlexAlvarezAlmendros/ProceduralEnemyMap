@@ -200,4 +200,17 @@ void InitEnemyList(List<Enemy> &_enemyList, int _enemyNum, int _size)
 
 		_enemyList.addItem(p);
 	}
+	for (int i = 0; i < _enemyNum; i++)
+	{
+		Enemy Aux1 = _enemyList.getItem(i);
+		for (int j = i + 1; j < _enemyNum; j++)
+		{
+			Enemy Aux2 = _enemyList.getItem(j);
+			if (Aux1.pos.X == Aux2.pos.X && Aux1.pos.Y == Aux2.pos.Y)
+			{
+				Aux1.pos.X = rand() % (_size - 2) + 1;
+				Aux1.pos.Y = rand() % (_size - 2) + 1;
+			}
+		}
+	}
 };
