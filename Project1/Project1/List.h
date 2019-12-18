@@ -18,7 +18,7 @@ private:
 	Node<T> * tail = nullptr;
 	int length = 0;
 
-	Node<T> * getNode(int id)
+	Node<T> * getNode(size_t id)
 	{
 		if (id < 0 || id >= length) {
 			return nullptr;

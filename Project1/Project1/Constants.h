@@ -23,4 +23,4 @@ const short MinRamificationLength = 2;
 const short MaxRamificationLength = 5;
 const short MinRamifications = 0;
 const short MaxRamifications = 1;
-const short MaxSize = 20;
+//int minSize = 20;

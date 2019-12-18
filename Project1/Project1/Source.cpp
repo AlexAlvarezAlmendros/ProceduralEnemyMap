@@ -17,7 +17,7 @@ void GameLoop()
 	room *nextRoom;
 	room *actualRoom = start;
 	int playerhp = 10;
-	nextRoom = FrameRate(*actualRoom, playerhp);
+	nextRoom = FrameRate(*actualRoom, playerhp, roomList);
 	if (nextRoom == end)
 	{
 		system("CLS");
@@ -31,7 +31,6 @@ int main()
 {
 
 	Init(start, end);
-
 	GameLoop();
 	Destroy(roomList);
 	return 0;

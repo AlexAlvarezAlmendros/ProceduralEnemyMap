@@ -1,6 +1,5 @@
 #include <ctime>
 #include <iostream>
-#include <thread>
 
 #include "Declarations.h"
 
@@ -35,7 +34,6 @@ void InitRoomList(List<room> &_level, char &_difficulty, room* &_start, room* &_
 	//	FASE 1 DOORS
 	for (size_t i = 0; i < mainPathSize; i++) //GENERACION DE ROOMS
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		room* room1 = new room();
 		BasicInitRoom(*room1, _difficulty);
 		if (i != 0)
@@ -47,30 +45,24 @@ void InitRoomList(List<room> &_level, char &_difficulty, room* &_start, room* &_
 			if (i == 1)
 			{
 				short rands = rand() % 4;
-
 				switch (rands)
 				{
 				case 0:
 					room2->west = prevroom;
 					prevroom->east = room2;
-
 					break;
 				case 1:
 					room2->east = prevroom;
 					prevroom->west = room2;
-
 					break;
 
 				case 2:
 					room2->south = prevroom;
 					prevroom->north = room2;
-
 					break;
-
 				case 3:
 					room2->north = prevroom;
 					prevroom->south = room2;
-
 					break;
 				default:
 					break;
@@ -115,24 +107,20 @@ void InitRoomList(List<room> &_level, char &_difficulty, room* &_start, room* &_
 			case 0:
 				room2->west = prevroom;
 				prevroom->east = room2;
-
 				break;
 			case 1:
 				room2->east = prevroom;
 				prevroom->west = room2;
-
 				break;
 
 			case 2:
 				room2->south = prevroom;
 				prevroom->north = room2;
-
 				break;
 
 			case 3:
 				room2->north = prevroom;
 				prevroom->south = room2;
-
 				break;
 			default:
 				break;
@@ -148,7 +136,7 @@ void InitRoomList(List<room> &_level, char &_difficulty, room* &_start, room* &_
 			_level.addItem(*room1);
 			_start = &_level.getFirst()->data;
 		}
-		if (i == mainPathSize - 1)
+		if (i == mainPathSize--)
 		{
 			_end = &_level.getFirst()->data;
 		}
@@ -168,14 +156,7 @@ void BasicInitRoom(room &_room, char &_difficulty)
 		_room.map[i].resize(_room.size);
 		for (size_t j = 0; j < _room.size; j++)
 		{
-			if (i == 0 || j == 0 || i == _room.size - 1 || j == _room.size - 1)
-			{
 				_room.map[i][j] = ' ';
-			}
-			else
-			{
-				_room.map[i][j] = ' ';
-			}
 		}
 	}
 	_room.player.pos.X = _room.size / 2;
@@ -185,7 +166,7 @@ void BasicInitRoom(room &_room, char &_difficulty)
 int SetDifficulty(room &_room, char &_difficulty)
 {
 	srand(time(NULL));
-	_room.size = rand() % MaxSize + 20;
+	_room.size = rand() % 10 + 20;
 
 	switch (_difficulty)
 	{
@@ -213,10 +194,8 @@ void InitEnemyList(List<Enemy> &_enemyList, int _enemyNum, int _size)
 
 	for (int i = 0; i < _enemyNum; i++)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 		srand(time(NULL));
 		p.pos.X = rand() % _size;
-		std::this_thread::sleep_for(std::chrono::milliseconds(1));
 		srand(time(NULL));
 		p.pos.Y = rand() % _size;
 
