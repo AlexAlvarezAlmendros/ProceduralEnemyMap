@@ -172,15 +172,15 @@ int SetDifficulty(room &_room, char &_difficulty)
 	{
 	case 'f':
 	case 'F':
-		_room.startEnemyNum = 1 + (rand() % 3);
+		_room.startEnemyNum = rand() % 3 + 1;
 		break;
 	case 'm':
 	case 'M':
-		_room.startEnemyNum = 3 + (rand() % (6 - 2));
+		_room.startEnemyNum = rand() % 6 + 3;
 		break;
 	case 'd':
 	case 'D':
-		_room.startEnemyNum = 5 + (rand() % (8 - 4));
+		_room.startEnemyNum = rand() % 8 + 6;
 		break;
 	default:
 		break;
@@ -194,12 +194,10 @@ void InitEnemyList(List<Enemy> &_enemyList, int _enemyNum, int _size)
 
 	for (int i = 0; i < _enemyNum; i++)
 	{
-		srand(time(NULL));
-		p.pos.X = rand() % _size;
-		srand(time(NULL));
-		p.pos.Y = rand() % _size;
+		p.pos.X = rand() % (_size - 2) + 1;
+
+		p.pos.Y = rand() % (_size - 2) + 1;
 
 		_enemyList.addItem(p);
 	}
-	return;
 };

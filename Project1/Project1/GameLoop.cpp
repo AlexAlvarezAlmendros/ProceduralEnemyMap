@@ -133,7 +133,7 @@ void checkDoors(room &_room)
 	}
 }
 
-room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
+room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 {
 	room *nextRoom;
 	clock_t timer = 0;
@@ -240,8 +240,8 @@ room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 		std::cout << "\nTiempo: " << time / 1000.0f;
 		std::cout << "\nX: " << _room.player.pos.X << " Y: " << _room.player.pos.Y;
 		std::cout << "\nRoom Size: " << _room.size;
-		std::cout << "\nList length: " << _room.enemyList.getLength();
-		std::cout << "\nList rooms: " << _listRoom.getLength() << std::endl;
+		std::cout << "\nEnemy List Length: " << _room.enemyList.getLength();
+		std::cout << "\nRoom List Length: " << _listRoomLength << std::endl;
 
 		//if you really want FPS
 		if (timer >= 1000.0) { //every second
