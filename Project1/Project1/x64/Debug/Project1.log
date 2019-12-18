@@ -1,8 +1,21 @@
-﻿  Init.cpp
-c:\users\alex.barra\downloads\proceduralenemymap-merge-barra-poio\project1\project1\init.cpp(31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\alex.barra\downloads\proceduralenemymap-merge-barra-poio\project1\project1\init.cpp(76): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\alex.barra\downloads\proceduralenemymap-merge-barra-poio\project1\project1\init.cpp(84): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\alex.barra\downloads\proceduralenemymap-merge-barra-poio\project1\project1\init.cpp(92): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\alex.barra\downloads\proceduralenemymap-merge-barra-poio\project1\project1\init.cpp(100): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\alex.barra\downloads\proceduralenemymap-merge-barra-poio\project1\project1\init.cpp(168): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Project1.vcxproj -> C:\Users\alex.barra\Downloads\ProceduralEnemyMap-Merge-Barra-Poio\Project1\x64\Debug\Project1.exe
+﻿  Destroy.cpp
+  GameLoop.cpp
+c:\users\alex alvarez\desktop\project1\project1\gameloop.cpp(235): warning C4244: '=': conversión de '_Rep' a 'clock_t'; posible pérdida de datos
+          with
+          [
+              _Rep=__int64
+          ]
+c:\users\alex alvarez\desktop\project1\project1\gameloop.cpp(249): warning C4244: '=': conversión de 'float' a 'clock_t'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\gameloop.cpp(257): warning C4244: '+=': conversión de 'float' a 'clock_t'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\gameloop.cpp(259): warning C4244: '=': conversión de 'float' a 'clock_t'; posible pérdida de datos
+  Init.cpp
+c:\users\alex alvarez\desktop\project1\project1\init.cpp(31): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\init.cpp(76): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\init.cpp(84): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\init.cpp(92): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\init.cpp(100): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+c:\users\alex alvarez\desktop\project1\project1\init.cpp(168): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Source.cpp
+  Generando código...
+  LINK : no se encontró C:\Users\Alex Alvarez\Desktop\Project1\x64\Debug\Project1.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
+  Project1.vcxproj -> C:\Users\Alex Alvarez\Desktop\Project1\x64\Debug\Project1.exe
