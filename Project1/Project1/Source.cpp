@@ -17,7 +17,7 @@ void GameLoop()
 	room *nextRoom;
 	room *actualRoom = start;
 	int playerhp = 10;
-	nextRoom = FrameRate(*actualRoom, playerhp, roomList);
+	nextRoom = FrameRate(*actualRoom, playerhp, roomList.getLength());
 	if (nextRoom == end)
 	{
 		system("CLS");

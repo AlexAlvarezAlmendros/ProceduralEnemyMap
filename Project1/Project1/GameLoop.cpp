@@ -105,85 +105,6 @@ void checkMapBalls(room& _room)
 	}
 }
 
-void enemyMovement(room& _room)
-{
-	Enemy aux;
-	for (size_t i = 0; i < _room.enemyList.getLength(); i++)
-	{
-
-		aux = _room.enemyList.getItem(i);
-		int x = aux.pos.X;
-		int y = aux.pos.Y;
-		if (_room.player.pos.X > aux.pos.X and _room.player.pos.Y > aux.pos.Y)
-		{
-			_room.map[x][y] = ' ';
-			aux.pos.X++;
-			aux.pos.Y++;
-
-		}
-		else if (_room.player.pos.X < aux.pos.X and _room.player.pos.Y < aux.pos.Y)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.X--;
-			aux.pos.Y--;
-
-		}
-		else if (_room.player.pos.Y > aux.pos.Y and _room.player.pos.X < aux.pos.X)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.Y++;
-			aux.pos.X--;
-
-		}
-		else if (_room.player.pos.Y < aux.pos.Y and _room.player.pos.X > aux.pos.X)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.Y--;
-			aux.pos.X++;
-
-		}
-		else if (_room.player.pos.Y == aux.pos.Y and _room.player.pos.X < aux.pos.X)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.X--;
-
-		}
-		else if (_room.player.pos.Y == aux.pos.Y and _room.player.pos.X > aux.pos.X)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.X++;
-
-		}
-		else if (_room.player.pos.Y < aux.pos.Y and _room.player.pos.X == aux.pos.X)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.Y--;
-
-		}
-		else if (_room.player.pos.Y > aux.pos.Y and _room.player.pos.X == aux.pos.X)
-		{
-			_room.map[x][y] = ' ';
-
-			aux.pos.Y++;
-
-		}
-		else
-		{
-			return;
-		}
-		_room.map[aux.pos.X][aux.pos.Y] = aux.skin;
-		_room.enemyList.getItem(i) = aux;
-
-	}
-	return;
-}
-
 void checkDoors(room &_room)
 {
 	//	COMPRUEBA LA PUERTA IZQUIERDA
@@ -212,7 +133,7 @@ void checkDoors(room &_room)
 	}
 }
 
-room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
+room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 {
 	room *nextRoom;
 	clock_t timer = 0;
@@ -245,7 +166,6 @@ room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 					_room.player.pos.X--;
 				}
 				std::cout << std::endl << "Up" << std::endl; //key up
-				enemyMovement(_room);
 				break;
 
 			case KEY_DOWN:
@@ -262,7 +182,6 @@ room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 					_room.player.pos.X++;
 				}
 				std::cout << std::endl << "Down" << std::endl; // key down
-				enemyMovement(_room);
 				break;
 
 			case KEY_LEFT:
@@ -279,7 +198,6 @@ room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 					_room.player.pos.Y--;
 				}
 				std::cout << std::endl << "Left" << std::endl; // key left
-				enemyMovement(_room);
 				break;
 
 			case KEY_RIGHT:
@@ -296,7 +214,6 @@ room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 					_room.player.pos.Y++;
 				}
 				std::cout << std::endl << "Right" << std::endl; // key right
-				enemyMovement(_room);
 				break;
 
 			default:
@@ -323,8 +240,8 @@ room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom)
 		std::cout << "\nTiempo: " << time / 1000.0f;
 		std::cout << "\nX: " << _room.player.pos.X << " Y: " << _room.player.pos.Y;
 		std::cout << "\nRoom Size: " << _room.size;
-		std::cout << "\nList length: " << _room.enemyList.getLength();
-		std::cout << "\nList rooms: " << _listRoom.getLength() << std::endl;
+		std::cout << "\nEnemy List Length: " << _room.enemyList.getLength();
+		std::cout << "\nRoom List Length: " << _listRoomLength << std::endl;
 
 		//if you really want FPS
 		if (timer >= 1000.0) { //every second

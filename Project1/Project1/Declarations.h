@@ -25,11 +25,9 @@ void drawMap(room &_room);
 
 void checkMapBalls(room &_room);
 
-void enemyMovement(room& _room);
-
 void checkDoors(room &_room);
 
-room *FrameRate(room &_room, int &_playerhp, List<room> _listRoom);
+room *FrameRate(room &_room, int &_playerhp, int _listRoomLength/* List<room> _listRoom*/);
 
 
 void Destroy(List<room> &_roomList);
