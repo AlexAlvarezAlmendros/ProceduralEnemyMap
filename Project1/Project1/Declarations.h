@@ -23,7 +23,7 @@ void enemyIntoMap(room &_room);
 
 void drawMap(room &_room);
 
-void checkMapBalls(room &_room);
+void checkMapBalls(room &_room, int &playerhp);
 
 void enemyMovement(room& _room);
 

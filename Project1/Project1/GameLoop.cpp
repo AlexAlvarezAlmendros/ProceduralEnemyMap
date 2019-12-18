@@ -91,7 +91,7 @@ void drawMap(room &_room)
 	}
 }
 
-void checkMapBalls(room& _room)
+void checkMapBalls(room& _room, int &playerhp)
 {
 	Enemy bAux;
 	for (size_t i = 0; i < _room.enemyList.getLength(); i++)
@@ -100,6 +100,7 @@ void checkMapBalls(room& _room)
 		if (_room.map[_room.player.pos.X][_room.player.pos.Y] != bAux.skin && (_room.player.pos.X == bAux.pos.X && _room.player.pos.Y == bAux.pos.Y))
 		{
 			_room.enemyList.removeItem(i);
+			playerhp--;
 			return;
 		}
 	}
@@ -324,7 +325,8 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 		std::cout << "\nX: " << _room.player.pos.X << " Y: " << _room.player.pos.Y;
 		std::cout << "\nRoom Size: " << _room.size;
 		std::cout << "\nEnemy List Length: " << _room.enemyList.getLength();
-		std::cout << "\nRoom List Length: " << _listRoomLength << std::endl;
+		std::cout << "\nRoom List Length: " << _listRoomLength;
+		std::cout << "\nVidas: " << _playerhp << std::endl;
 
 		//if you really want FPS
 		if (timer >= 1000.0) { //every second
