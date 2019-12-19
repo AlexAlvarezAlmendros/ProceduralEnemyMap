@@ -32,36 +32,54 @@ void drawMap(room &_room)
 	{
 		for (size_t j = 0; j < roomSize; j++)
 		{
-			if ((i == 0 /*roomSize - roomSize*/ && j != roomSize / 2) || (i == roomSize - 1 && j != roomSize / 2))
+			if (i == 0 && j + 1 == _room.size )
 			{
-				if (j + 1 == _room.size)
-				{
-					//	ultima casilla del tejado
-					std::cout << "º\n";
-				}
-				else if (j == 0 /*roomSize - roomSize*/ && i == 0 /*roomSize - roomSize*/)
-				{
-					std::cout << " ";
-				}
-				else if (j != roomSize)
-				{
-					//	PUERTA TECHO Y TECHO && PUERTA SUELO Y SUELO
-					std::cout << 'º';
-				}
+				//	ultima casilla del tejado
+				std::cout << "º\n";
 			}
-			else if (j == 0 && i != roomSize / 2 || j == roomSize - 1 && i != roomSize / 2)
+			//	TECHO
+			else if ((i == 0 && j != roomSize / 2) && _room.east != nullptr)
 			{
-				
-				if (j == 0 && i != roomSize)
-				{
-					//	PARED Y PUERTA IZQUIERDA
-					std::cout << '|';
-				}
-				else if (j == roomSize - 1 && i != roomSize)
-				{
-					//	PARED Y PUERTA DERECHA
-					std::cout << "|";
-				}
+				//	PUERTA TECHO Y TECHO
+				std::cout << 'º';
+			}
+			else if ((i == 0) && _room.east == nullptr)
+			{
+				//	TECHO
+				std::cout << 'º';
+			}
+			// SUELO
+			else if ((i == roomSize - 1 && j != roomSize / 2) && _room.west != nullptr)
+			{
+				//	PUERTA SUELO Y SUELO
+				std::cout << 'º';
+			}
+			else if ((i == roomSize - 1) && _room.west == nullptr)
+			{
+				//	SUELO
+				std::cout << 'º';
+			}
+			//	IZQUIERDA
+			else if ((j == 0 && i != roomSize / 2) && _room.north != nullptr)
+			{
+				//	PARED Y PUERTA IZQUIERDA
+				std::cout << '|';
+			}
+			else if ((j == 0) && _room.north == nullptr)
+			{
+				//	PARED IZQUIERDA
+				std::cout << '|';
+			}
+			// DERECHA
+			else if ((j == roomSize - 1 && i != roomSize / 2) && _room.south != nullptr)
+			{
+				//	PARED Y PUERTA DERECHA
+				std::cout << "|";
+			}
+			else if ((j == roomSize - 1) && _room.south == nullptr)
+			{
+				//	PARED DERECHA
+				std::cout << "|";
 			}
 			else
 			{
@@ -241,7 +259,7 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.X--;
 				}
-				else if (_room.player.pos.Y == _room.size / 2 && _room.player.pos.X == _room.size - _room.size + 1)
+				else if ((_room.player.pos.Y == _room.size / 2 && _room.player.pos.X == _room.size - _room.size + 1) && _room.east != nullptr)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.X--;
@@ -263,7 +281,7 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.X++;
 				}
-				else if (_room.player.pos.Y == _room.size / 2 && _room.player.pos.X < _room.size - 1)
+				else if ((_room.player.pos.Y == _room.size / 2 && _room.player.pos.X < _room.size - 1) && _room.west != nullptr)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.X++;
@@ -285,7 +303,7 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.Y--;
 				}
-				else if (_room.player.pos.Y > _room.size - _room.size && _room.player.pos.X == _room.size / 2)
+				else if ((_room.player.pos.Y > _room.size - _room.size && _room.player.pos.X == _room.size / 2) && _room.north != nullptr)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.Y--;
@@ -307,7 +325,7 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.Y++;
 				}
-				else if (_room.player.pos.Y < _room.size - 1&& _room.player.pos.X == _room.size / 2)
+				else if ((_room.player.pos.Y < _room.size - 1&& _room.player.pos.X == _room.size / 2) && _room.south != nullptr)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
 					_room.player.pos.Y++;
@@ -346,6 +364,7 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 		std::cout << "\nRoom Size: " << _room.size;
 		std::cout << "\nEnemy List Length: " << _room.enemyList.getLength();
 		std::cout << "\nRoom List Length: " << _listRoomLength;
+		std::cout << "\nPuerta WEST: " << _room.west << " | Puerta EAST: " << _room.east << "\nPuerta NORTH: " << _room.north << " | Puerta SOUTH: " << _room.south;
 		std::cout << "\nVidas: " << _playerhp << std::endl;
 
 		//if you really want FPS
