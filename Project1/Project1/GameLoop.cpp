@@ -215,6 +215,7 @@ void checkDoors(room &_room)
 
 room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 {
+	int inputCount = 0;
 	room *nextRoom;
 	clock_t timer = 0;
 	clock_t time = 0;
@@ -228,13 +229,13 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 		int c = 0;
 		enemyIntoMap(_room);
-
 		if (_kbhit()) {
 			switch ((c = _getch())) {
 
 			case KEY_UP:
 			case KEY_W:
 			case KEY_w:
+				inputCount++;
 				if (_room.player.pos.X > _room.size - _room.size + 1)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
@@ -246,12 +247,17 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.player.pos.X--;
 				}
 				std::cout << std::endl << "Up" << std::endl; //key up
-				enemyMovement(_room);
+				if (inputCount >= 2)
+				{
+					enemyMovement(_room);
+					inputCount = 0;
+				}
 				break;
 
 			case KEY_DOWN:
 			case KEY_S:
 			case KEY_s:
+				inputCount++;
 				if (_room.player.pos.X < _room.size - 2)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
@@ -263,12 +269,17 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.player.pos.X++;
 				}
 				std::cout << std::endl << "Down" << std::endl; // key down
-				enemyMovement(_room);
+				if (inputCount >= 2)
+				{
+					enemyMovement(_room);
+					inputCount = 0;
+				}
 				break;
 
 			case KEY_LEFT:
 			case KEY_A:
 			case KEY_a:
+				inputCount++;
 				if (_room.player.pos.Y > _room.size - _room.size + 1)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
@@ -280,12 +291,17 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.player.pos.Y--;
 				}
 				std::cout << std::endl << "Left" << std::endl; // key left
-				enemyMovement(_room);
+				if (inputCount >= 2)
+				{
+					enemyMovement(_room);
+					inputCount = 0;
+				}
 				break;
 
 			case KEY_RIGHT:
 			case KEY_D:
 			case KEY_d:
+				inputCount++;
 				if (_room.player.pos.Y < _room.size - 2)
 				{
 					_room.map[_room.player.pos.X][_room.player.pos.Y] = ' ';
@@ -297,7 +313,11 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 					_room.player.pos.Y++;
 				}
 				std::cout << std::endl << "Right" << std::endl; // key right
-				enemyMovement(_room);
+				if (inputCount >= 2)
+				{
+					enemyMovement(_room);
+					inputCount = 0;
+				}
 				break;
 
 			default:
@@ -311,7 +331,7 @@ room *FrameRate(room &_room, int &_playerhp, int _listRoomLength)
 
 		system("cls");
 		drawMap(_room);
-		checkMapBalls(_room);
+		checkMapBalls(_room, _playerhp);
 		checkDoors(_room);
 
 		std::chrono::high_resolution_clock::time_point endFrame = std::chrono::high_resolution_clock::now();
